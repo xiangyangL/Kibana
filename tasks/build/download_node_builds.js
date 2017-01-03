@@ -19,7 +19,8 @@ export default function downloadNodeBuilds(grunt) {
   const shaSums = {};
   const getShaSums = () => {
     const nodeVersion = grunt.config.get('nodeVersion');
-    const shaSumsUri = `https://nodejs.org/dist/v${nodeVersion}/SHASUMS256.txt`;
+    const downloadUriCfg = grunt.config.get('downloadUri');
+    const shaSumsUri = `${downloadUriCfg}/v${nodeVersion}/SHASUMS256.txt`;
 
     return wreckGetAsync(shaSumsUri).then(([resp, payload]) => {
       if (resp.statusCode !== 200) {
