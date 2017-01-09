@@ -7,9 +7,11 @@ export default (server) => {
   const { isSystemApiRequest } = server.plugins.kibana.systemApi;
 
   return function validate(request, session, callback) {
+    console.log('cookie validate!!!');
     if (hasSessionExpired(session)) return callback(new Error('Session has expired'), false);
 
     const {username, password} = session;
+    console.log('cookie validate!!! user:' + username + '; pwd:' + password);
     return isValidUser(request, username, password).then(
       () => {
         // Extend the session timeout provided this is NOT a system API call

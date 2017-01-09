@@ -14,6 +14,7 @@ export default (server) => {
     path: '/api/security/v1/login',
     handler(request, reply) {
       const {username, password} = request.payload;
+
       return isValidUser(request, username, password).then((response) => {
         // Initialize the session
         request.auth.session.set({
@@ -21,7 +22,6 @@ export default (server) => {
           password,
           expires: calculateExpires()
         });
-
         return reply(response);
       }, (error) => {
         request.auth.session.clear();

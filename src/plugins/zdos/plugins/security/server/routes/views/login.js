@@ -9,11 +9,8 @@ export default (server, uiExports) => {
     method: 'GET',
     path: '/login',
     handler(request, reply) {
-
-      const showLogin = true;
-
       const isUserAlreadyLoggedIn = !!request.state[cookieName];
-      if (isUserAlreadyLoggedIn || !showLogin) {
+      if (isUserAlreadyLoggedIn) {
         const next = get(request, 'query.next', '/');
         return reply.redirect(`${config.get('server.basePath')}${next}`);
       }
