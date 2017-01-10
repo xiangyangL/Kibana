@@ -46,7 +46,6 @@ export default function createExports(server) {
                             user.firstname = results[0].name;
                             user.lastname = results[0].surname;
                             connection.end();
-                            console.log(user);
                             resolve(true);
                           }
                         });
