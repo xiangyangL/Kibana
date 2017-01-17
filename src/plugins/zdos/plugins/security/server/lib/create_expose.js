@@ -32,12 +32,10 @@ export default function createExports(server) {
                         [columns, username, password],
                         function (error, results, fields) {
                           if (error) {
-                            console.log(error);
                             connection.end();
                             return reject(error);
                           }
                           if (results.length !== 1) {
-                            console.log('!=1');
                             connection.end();
                             return reject(new Error('empty record or incorrect record'));
                           } else {

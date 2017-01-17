@@ -6,7 +6,7 @@
   <div class="form-container">
     <form class="login-form" ng-submit="login.submit(username, password)">
       <div ng-show="login.error" class="form-group error-message">
-        <label class="control-label">Oops! Error. Try again.</label>
+        <label class="control-label">登录失败！请重试</label>
       </div>
 
       <div class="form-group inner-addon left-addon">
@@ -20,7 +20,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" ng-disabled="login.isDisabled || !login.allowLogin || !username || !password || login.isLoading" class="btn btn-block btn-default login">LOG IN</button>
+        <button type="submit" ng-disabled="login.isDisabled || !login.allowLogin || !username || !password || login.isLoading" class="btn btn-block btn-default login">登录</button>
       </div>
     </form>
   </div>

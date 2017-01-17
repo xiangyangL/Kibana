@@ -16,7 +16,7 @@ module.exports = function (kibana) {
     config: function (Joi) {
       return Joi.object({
         enabled: Joi.boolean().default(true),
-        defaultAppId: Joi.string().default('discover'),
+        defaultAppId: Joi.string().default('dashboard'),
         index: Joi.string().default('.kibana')
       }).default();
     },
@@ -24,9 +24,9 @@ module.exports = function (kibana) {
     uiExports: {
       app: {
         id: 'kibana',
-        title: 'Kibana',
+        title: 'ZDOS',
         listed: false,
-        description: 'the kibana you know and love',
+        description: 'the ZDOS you know and love',
         main: 'plugins/kibana/kibana',
         uses: [
           'visTypes',
@@ -49,35 +49,35 @@ module.exports = function (kibana) {
 
       links: [
         {
-          id: 'kibana:discover',
-          title: 'Discover',
+          id: 'kibana:dashboard',
+          title: '仪表盘',
           order: -1003,
+          url: `${kbnBaseUrl}#/dashboard`,
+          description: 'compose visualizations for much win',
+          icon: 'plugins/kibana/assets/dashboard.svg',
+        }, {
+          id: 'kibana:discover',
+          title: '数据分析',
+          order: -1002,
           url: `${kbnBaseUrl}#/discover`,
           description: 'interactively explore your data',
           icon: 'plugins/kibana/assets/discover.svg',
         }, {
           id: 'kibana:visualize',
-          title: 'Visualize',
-          order: -1002,
+          title: '数据可视化',
+          order: -1001,
           url: `${kbnBaseUrl}#/visualize`,
           description: 'design data visualizations',
           icon: 'plugins/kibana/assets/visualize.svg',
         }, {
-          id: 'kibana:dashboard',
-          title: 'Dashboard',
-          order: -1001,
-          url: `${kbnBaseUrl}#/dashboard`,
-          description: 'compose visualizations for much win',
-          icon: 'plugins/kibana/assets/dashboard.svg',
-        }, {
-          title: 'Dev Tools',
+          title: '开发工具',
           order: 9001,
           url: '/app/kibana#/dev_tools',
           description: 'development tools',
           icon: 'plugins/kibana/assets/wrench.svg'
         }, {
           id: 'kibana:management',
-          title: 'Management',
+          title: '管理',
           order: 9003,
           url: `${kbnBaseUrl}#/management`,
           description: 'define index patterns, change config, and more',
