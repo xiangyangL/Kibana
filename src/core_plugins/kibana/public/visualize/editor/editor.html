@@ -22,12 +22,12 @@
       >
         <!-- Block searching if the Visualization is linked to a Saved Search. -->
         <div ng-if="vis.type.requiresSearch && $state.linked">
-          Linked to Saved Search &ldquo;{{ savedVis.savedSearch.title }}&rdquo;
+          关联已保存的搜索 &ldquo;{{ savedVis.savedSearch.title }}&rdquo;
           &nbsp;
           <a
             href=""
             ng-dblclick="unlink()"
-            tooltip="Double click to unlink from Saved Search"
+            tooltip="双击取消关联到已保存的搜索"
           >
             <i aria-hidden="true" class="fa fa-chain-broken"></i>
           </a>
@@ -47,7 +47,7 @@
                 parse-query
                 input-focus
                 kbn-typeahead-input
-                placeholder="Search..."
+                placeholder="搜索..."
                 type="text"
                 class="localSearchInput"
                 ng-class="{'localSearchInput-isInvalid': queryInput.$invalid}"

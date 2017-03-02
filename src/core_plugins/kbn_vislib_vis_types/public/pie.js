@@ -8,10 +8,9 @@ export default function HistogramVisType(Private) {
 
   return new VislibVisType({
     name: 'pie',
-    title: 'Pie chart',
+    title: '饼图',
     icon: 'fa-pie-chart',
-    description: 'Pie charts are ideal for displaying the parts of some whole. For example, sales percentages by department.' +
-     'Pro Tip: Pie charts are best used sparingly, and with no more than 7 slices per pie.',
+    description: '饼图是理想的可视化整体的占用比例，比如部门的销售比例。友情提示：饼图最好尽量少用，并且每个饼图最好不要超过七个分片。',
     params: {
       defaults: {
         shareYAxis: true,
@@ -42,7 +41,7 @@ export default function HistogramVisType(Private) {
       {
         group: 'metrics',
         name: 'metric',
-        title: 'Slice Size',
+        title: '饼图尺寸',
         min: 1,
         max: 1,
         aggFilter: ['sum', 'count', 'cardinality'],
@@ -54,7 +53,7 @@ export default function HistogramVisType(Private) {
         group: 'buckets',
         name: 'segment',
         icon: 'fa fa-scissors',
-        title: 'Split Slices',
+        title: '分片',
         min: 0,
         max: Infinity,
         aggFilter: '!geohash_grid'
@@ -63,7 +62,7 @@ export default function HistogramVisType(Private) {
         group: 'buckets',
         name: 'split',
         icon: 'fa fa-th',
-        title: 'Split Chart',
+        title: '分图',
         mustBeFirst: true,
         min: 0,
         max: 1,

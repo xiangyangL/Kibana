@@ -68,8 +68,8 @@ app.service('savedVisualizations', function (Promise, es, kbnIndex, SavedVis, Pr
     }
 
     if (!typeName || !visTypes.byName[typeName]) {
-      if (!typeName) notify.error('Visualization type is missing. Please add a type to this visualization.', hit);
-      else notify.error('Visualization type of "' + typeName + '" is invalid. Please change to a valid type.', hit);
+      if (!typeName) notify.error('缺少可视化类型，请为这个可视化增加一个类型。', hit);
+      else notify.error('这个可视化类型 "' + typeName + '" 是无效的，请改为一个有效的类型', hit);
       return kbnUrl.redirect('/management/kibana/objects/savedVisualizations/{{id}}', {id: source.id});
     }
 

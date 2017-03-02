@@ -8,12 +8,11 @@ export default function HistogramVisType(Private) {
 
   return new VislibVisType({
     name: 'area',
-    title: 'Area chart',
+    title: '区域图',
     icon: 'fa-area-chart',
-    description: 'Great for stacked timelines in which the total of all series is more important ' +
-      'than comparing any two or more series. Less useful for assessing the relative change of ' +
-      'unrelated data points as changes in a series lower down the stack will have a difficult to gauge ' +
-      'effect on the series above it.',
+    description: '制作折线区域图，用来对比两个或多个参数， ' +
+      '从而评估不相关的数据点的相对变化， ' +
+      '根据面积的重叠，可以很直观的展示参数之间的变化关系。' ,
     params: {
       defaults: {
         shareYAxis: true,
@@ -32,16 +31,16 @@ export default function HistogramVisType(Private) {
       },
       legendPositions: [{
         value: 'left',
-        text: 'left',
+        text: '左侧',
       }, {
         value: 'right',
-        text: 'right',
+        text: '右侧',
       }, {
         value: 'top',
-        text: 'top',
+        text: '顶部',
       }, {
         value: 'bottom',
-        text: 'bottom',
+        text: '底部',
       }],
       scales: ['linear', 'log', 'square root'],
       modes: ['stacked', 'overlap', 'percentage', 'wiggle', 'silhouette'],
@@ -52,7 +51,7 @@ export default function HistogramVisType(Private) {
       {
         group: 'metrics',
         name: 'metric',
-        title: 'Y-Axis',
+        title: 'Y轴',
         min: 1,
         aggFilter: '!std_dev',
         defaults: [
@@ -62,7 +61,7 @@ export default function HistogramVisType(Private) {
       {
         group: 'buckets',
         name: 'segment',
-        title: 'X-Axis',
+        title: 'X轴',
         min: 0,
         max: 1,
         aggFilter: '!geohash_grid'
@@ -70,7 +69,7 @@ export default function HistogramVisType(Private) {
       {
         group: 'buckets',
         name: 'group',
-        title: 'Split Area',
+        title: '划分区域',
         min: 0,
         max: 1,
         aggFilter: '!geohash_grid'
@@ -78,7 +77,7 @@ export default function HistogramVisType(Private) {
       {
         group: 'buckets',
         name: 'split',
-        title: 'Split Chart',
+        title: '划分图表',
         min: 0,
         max: 1,
         aggFilter: '!geohash_grid'

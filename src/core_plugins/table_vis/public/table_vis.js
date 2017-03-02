@@ -29,10 +29,9 @@ function TableVisTypeProvider(Private) {
   // Vis object of this type.
   return new TemplateVisType({
     name: 'table',
-    title: 'Data table',
+    title: '表格',
     icon: 'fa-table',
-    description: 'The data table provides a detailed breakdown, in tabular format, of the results of a composed ' +
-      'aggregation. Tip, a data table is available from many other charts by clicking the grey bar at the bottom of the chart.',
+    description: '数据表把聚合的结果按表格的形式做详细的分类。提示，点击表格的单元格可以显示该单元格的聚合，起到了再次过滤的作用。',
     template: tableVisTemplate,
     params: {
       defaults: {
@@ -56,7 +55,7 @@ function TableVisTypeProvider(Private) {
       {
         group: 'metrics',
         name: 'metric',
-        title: 'Metric',
+        title: '度量标准',
         min: 1,
         defaults: [
           { type: 'count', schema: 'metric' }
@@ -65,12 +64,12 @@ function TableVisTypeProvider(Private) {
       {
         group: 'buckets',
         name: 'bucket',
-        title: 'Split Rows'
+        title: '分行'
       },
       {
         group: 'buckets',
         name: 'split',
-        title: 'Split Table'
+        title: '划分表格'
       }
     ])
   });

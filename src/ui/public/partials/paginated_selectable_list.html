@@ -24,7 +24,7 @@
   <ul class="li-striped list-group list-group-menu">
     <li class="list-group-item" ng-click="sortHits(hits)">
       <span class="paginate-heading">
-        Name
+        名称
         <i class="fa" ng-class="isAscending ? 'fa-caret-up' : 'fa-caret-down'"></i>
       </span>
     </li>
@@ -37,7 +37,7 @@
       </div>
     </li>
     <li class="list-group-item list-group-no-results" ng-if="(hits | filter: query).length === 0">
-      <p>No matches found.</p>
+      <p>没有发现结果。</p>
     </li>
   </ul>
 </paginate>

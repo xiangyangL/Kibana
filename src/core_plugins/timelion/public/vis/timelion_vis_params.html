@@ -1,13 +1,13 @@
 <div ng-controller="TimelionVisParamsController">
   <div class="form-group">
-    <label>Interval</label>
+    <label>间隔</label>
     <timelion-interval model="vis.params.interval"></timelion-interval>
   </div>
 
   <div class="form-group">
     <div class="timelion-vis-editor-expression">
       <div>
-        <label>Timelion Expression</label>
+        <label>Timelion 表达式</label>
       </div>
       <textarea
         ng-model="vis.params.expression" class="form-control" timelion-expression="{{vis.params.expression}}"

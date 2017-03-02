@@ -256,8 +256,7 @@ export default function AreaChartFactory(Private) {
 
     checkIfEnoughData() {
       const series = this.chartData.series;
-      const message = 'Area charts require more than one data point. Try adding ' +
-        'an X-Axis Aggregation';
+      const message = '区域图需要不止一个数据点，尝试增加X轴聚合，或者增大时间范围。';
 
       const notEnoughData = series.some(function (obj) {
         return obj.values.length < 2;

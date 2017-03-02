@@ -9,7 +9,7 @@ import uiModules from 'ui/modules';
 uiModules.get('apps/management');
 
 management.getSection('kibana').register('objects', {
-  display: 'Saved Objects',
+  display: '已保存的项目',
   order: 10,
   url: '#/management/kibana/objects'
 });

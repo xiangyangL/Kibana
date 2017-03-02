@@ -2,10 +2,8 @@
   <kbn-management-indices>
     <div ng-controller="managementIndicesCreate" class="kbn-management-indices-create">
       <div class="page-header">
-        <h1>Configure an index pattern</h1>
-        In order to use Kibana you must configure at least one index pattern. Index patterns are
-        used to identify the Elasticsearch index to run search and analytics against. They are also
-        used to configure fields.
+        <h1>配置一个索引</h1>
+        为了使用ZDOS，你必须至少配置一个索引。索引是在运行一个搜索和分析之前用来匹配es索引的，他们同时也用来设置字段。
       </div>
       <div>
         <form name="form" role="form" class="well" ng-submit="createIndexPattern()">
@@ -14,28 +12,24 @@
               <input
                 ng-model="index.isTimeBased"
                 type="checkbox">
-              Index contains time-based events
+              索引包含以时间为基础的事件
             </label>
             <br>
             <label ng-if="index.isTimeBased">
               <input ng-model="index.nameIsPattern" type="checkbox">
-              Use event times to create index names <small>[DEPRECATED]</small>
+              用事件时间去创建索引名称 <small>[不建议]</small>
             </label>
           </div>
 
           <div class="form-group" ng-if="index.isTimeBased && index.nameIsPattern">
             <div class="alert alert-warning">
-              <h4>Time-interval based index patterns are deprecated!</h4>
+              <h4>不建议用时间间隔为基础的索引模式</h4>
               <p>
-                We <strong>strongly recommend</strong> using wildcard pattern names instead of
-                time-interval based index patterns.
+                我们 <strong>强烈 建议</strong> 用通配符模式做索引名，而不是时间间隔模式。
               </p>
               <p>
-                Kibana is now smart enough to automatically determine which
-                indices to search against within the current time range for
-                wildcard index patterns. This means that wildcard
-                index patterns now get the same performance optimizations when
-                searching within a time range as time-interval patterns.
+                用通配符模式，ZDOS现在足够聪明来自动确定在当前时间范围内哪些索引被用来搜索。
+                这意味着，现在通配符索引模式可以得到和时间间隔相同的性能优化。
               </p>
             </div>
             <label>

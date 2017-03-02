@@ -13,10 +13,9 @@ export default function TileMapVisType(Private, getAppState, courier, config) {
 
   return new VislibVisType({
     name: 'tile_map',
-    title: 'Tile map',
+    title: '地图',
     icon: 'fa-map-marker',
-    description: 'Your source for geographic maps. Requires an elasticsearch geo_point field. More specifically, a field ' +
-     'that is mapped as type:geo_point with latitude and longitude coordinates.',
+    description: '在地理地图上显示你数据的分布情况。需要一个经纬字段。更加具体的来讲，一种映射类型的字段，包含坐标的经度和纬度。',
     params: {
       defaults: {
         mapType: 'Scaled Circle Markers',
@@ -34,16 +33,16 @@ export default function TileMapVisType(Private, getAppState, courier, config) {
       },
       legendPositions: [{
         value: 'bottomleft',
-        text: 'bottom left',
+        text: '左下',
       }, {
         value: 'bottomright',
-        text: 'bottom right',
+        text: '右下',
       }, {
         value: 'topleft',
-        text: 'top left',
+        text: '左上',
       }, {
         value: 'topright',
-        text: 'top right',
+        text: '右上',
       }],
       mapTypes: ['Scaled Circle Markers', 'Shaded Circle Markers', 'Shaded Geohash Grid', 'Heatmap'],
       canDesaturate: !!supports.cssFilters,
@@ -86,7 +85,7 @@ export default function TileMapVisType(Private, getAppState, courier, config) {
       {
         group: 'metrics',
         name: 'metric',
-        title: 'Value',
+        title: '值',
         min: 1,
         max: 1,
         aggFilter: ['count', 'avg', 'sum', 'min', 'max', 'cardinality'],
@@ -97,7 +96,7 @@ export default function TileMapVisType(Private, getAppState, courier, config) {
       {
         group: 'buckets',
         name: 'segment',
-        title: 'Geo Coordinates',
+        title: '地理坐标',
         aggFilter: 'geohash_grid',
         min: 1,
         max: 1
@@ -105,9 +104,9 @@ export default function TileMapVisType(Private, getAppState, courier, config) {
       {
         group: 'buckets',
         name: 'split',
-        title: 'Split Chart',
+        title: '分图',
         deprecate: true,
-        deprecateMessage: 'The Split Chart feature for Tile Maps has been deprecated.',
+        deprecateMessage: '地图分割图功能已过时。',
         min: 0,
         max: 1
       }

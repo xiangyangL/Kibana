@@ -1,6 +1,6 @@
 <!-- vis type specific options -->
 <div class="form-group">
-  <label>Map type</label>
+  <label>地图类型</label>
     <select name="agg"
     class="form-control"
     ng-model="vis.params.mapType"
@@ -13,8 +13,8 @@
 <div ng-if="vis.params.mapType === 'Heatmap'" class="form-group">
   <div>
     <label>
-      Radius
-      &nbsp;<kbn-info placement="right" info="Size of heatmap dots. Default: 25"></kbn-info>
+      半径
+      &nbsp;<kbn-info placement="right" info="热点图尺寸。默认: 25"></kbn-info>
     </label>
     <div class="vis-editor-agg-form-row">
       <input
@@ -34,8 +34,8 @@
   </div>
   <div>
     <label>
-      Blur
-      &nbsp;<kbn-info placement="right" info="Amount of blur applied to dots. Default: 15"></kbn-info>
+      模糊
+      &nbsp;<kbn-info placement="right" info="应用于圆点的模糊量。默认: 15"></kbn-info>
     </label>
     <div class="vis-editor-agg-form-row">
       <input
@@ -55,8 +55,8 @@
   </div>
   <div>
     <label>
-      Maximum zoom
-      &nbsp;<kbn-info placement="right" info="Map zoom at which all dots are displayed at full intensity. Default: 16"></kbn-info>
+      最大缩放
+      &nbsp;<kbn-info placement="right" info="地图缩放在所有的显示全亮度的点上。 默认: 16"></kbn-info>
     </label>
     <div class="vis-editor-agg-form-row">
       <input
@@ -76,8 +76,8 @@
   </div>
   <div>
     <label>
-      Minimum opacity
-      &nbsp;<kbn-info placement="right" info="Minimum opacity of dots. Default: 0.1"></kbn-info>
+      最小不透明度
+      &nbsp;<kbn-info placement="right" info="圆点的最小不透明度。默认: 0.1"></kbn-info>
     </label>
     <div class="vis-editor-agg-form-row">
       <input
@@ -107,9 +107,9 @@
     ng-disabled="!vis.type.params.canDesaturate"
     ng-model="vis.params.isDesaturated">
 
-    Desaturate map tiles
+    地图碎片的不饱和度
 
-    <kbn-info info="Reduce the vibrancy of tile colors, this does not work in any version of Internet Explorer"></kbn-info>
+    <kbn-info info="减少碎片颜色的活力，这个功能并不是在IE的所有版本中都会工作"></kbn-info>
   </label>
 </div>
 
@@ -119,9 +119,9 @@
     name="wms.enabled"
     ng-model="vis.params.wms.enabled">
 
-    WMS compliant map server
+    WMS的地图服务器
 
-    <kbn-info info="Use WMS compliant map tile server. For advanced users only."></kbn-info>
+    <kbn-info info="使用兼容的WMS地图碎片服务器。只供高级用户使用"></kbn-info>
   </label>
 </div>
 
@@ -129,8 +129,8 @@
   <div class="vis-option-item form-group">
 
     <p>
-      WMS maps are 3rd party mapping services that have not been verified to work with Kibana.
-      These should be considered expert settings.
+      WMS地图是第三方地图服务，并未于ZDOS合作。
+      这些是专业级设置。
     </p>
 
     <label>
@@ -187,7 +187,7 @@
       ng-model="vis.params.wms.options.styles">
   </div>
 
-  <p>* if this parameter is incorrect, maps will fail to load.</p>
+  <p>* 如果这个参数不正确，地图将无法加载！</p>
 
 
 </div>

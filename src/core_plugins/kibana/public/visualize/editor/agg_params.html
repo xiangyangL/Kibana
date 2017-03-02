@@ -1,6 +1,6 @@
 <div ng-if="aggIsTooLow" class="form-group">
   <p class="vis-editor-agg-error">
-    "{{ agg.schema.title }}" aggs must run before all other buckets!
+    "{{ agg.schema.title }}" 聚合必须在其他所有桶聚之前运行！
   </p>
   <input
     type="number"
@@ -15,7 +15,7 @@
     {{ agg.schema.deprecateMessage }}
   </p>
   <p ng-show="!agg.schema.deprecateMessage" class="vis-editor-agg-error">
-    "{{ agg.schema.title }}" has been deprecated.
+    "{{ agg.schema.title }}" 已被否定。
   </p>
 </div>
 

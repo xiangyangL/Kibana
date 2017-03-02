@@ -8,7 +8,7 @@
         <input
           input-focus
           ng-model="filter"
-          ng-attr-placeholder="{{finder.properties.nouns | label }} Filter..."
+          ng-attr-placeholder="{{finder.properties.nouns | label }} 过滤..."
           ng-keydown="finder.filterKeyDown($event)"
           class="form-control"
           name="filter"
@@ -20,7 +20,7 @@
       </div>
       <div class="finder-manage-object col-md-2" ng-if="!useLocalManagement">
         <a class="small" ng-click="finder.manageObjects(finder.properties.name)">
-          Manage {{finder.properties.nouns}}
+          管理 {{finder.properties.nouns}}
         </a>
       </div>
     </div>
@@ -30,7 +30,7 @@
   <ul class="li-striped list-group list-group-menu" ng-class="{'select-mode': finder.selector.enabled}">
     <li class="list-group-item" ng-click="finder.sortHits(finder.hits)">
       <span class="paginate-heading">
-        Name
+        名称
         <i
           class="fa"
           ng-class="finder.isAscending ? 'fa-caret-up' : 'fa-caret-down'">
@@ -55,7 +55,7 @@
     <li
       class="list-group-item list-group-no-results"
       ng-if="finder.hits.length === 0">
-      <p ng-bind="'No matching ' + finder.properties.nouns + ' found.'"></p>
+      <p ng-bind="'没有发现匹配的 ' + finder.properties.nouns "></p>
     </li>
   </ul>
 </paginate>

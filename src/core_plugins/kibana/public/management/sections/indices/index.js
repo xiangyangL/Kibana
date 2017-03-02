@@ -52,7 +52,7 @@ uiModules.get('apps/management')
 });
 
 management.getSection('kibana').register('indices', {
-  display: 'Index Patterns',
+  display: '索引方式',
   order: 0,
   url: '#/management/kibana/indices/'
 });

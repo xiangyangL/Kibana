@@ -1,38 +1,38 @@
 <div class="form-group">
-  <label>Per Page</label>
+  <label>每页</label>
   <input type="number" ng-model="vis.params.perPage" class="form-control">
 </div>
 
 <div class="checkbox">
   <label>
     <input type="checkbox" ng-model="vis.params.showMeticsAtAllLevels">
-    Show metrics for every bucket/level
+    显示每一个桶聚合或级别的度量
   </label>
 </div>
 
 <div class="checkbox">
   <label>
     <input type="checkbox" ng-model="vis.params.showPartialRows">
-    Show partial rows
+    显示部分行
   </label>
 </div>
 
 <div class="checkbox">
   <label>
     <input type="checkbox" ng-model="metricsAtAllLevels" disabled>
-    Calculate metrics for every bucket/level
+    计算每一个桶聚合或级别的度量
   </label>
 </div>
 
 <div class="checkbox">
   <label>
     <input type="checkbox" ng-model="vis.params.showTotal">
-    Show total
+    显示总和
   </label>
 </div>
 
 <div>
-  <label>Total function</label>
+  <label>总和函数</label>
   <select ng-disabled="!vis.params.showTotal"
           class="form-control"
           ng-model="vis.params.totalFunc"
