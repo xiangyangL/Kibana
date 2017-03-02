@@ -1,6 +1,7 @@
-<h3>Scripted fields</h3>
-<p>These scripted fields are computed on the fly from your data. They can be used in visualizations and displayed in your documents, however they can not be searched. You can manage them here and add new ones as you see fit, but be careful, scripts can be tricky! <!-- If you need some examples, why not let Kibana <a ng-click="addDateScripts()"><strong>create a few examples from your date fields.</strong></a --></p>
-
+<!--<h3>Scripted fields</h3>-->
+<h3>脚本字段</h3>
+<!--<p>These scripted fields are computed on the fly from your data. They can be used in visualizations and displayed in your documents, however they can not be searched. You can manage them here and add new ones as you see fit, but be careful, scripts can be tricky! &lt;!&ndash; If you need some examples, why not let Kibana <a ng-click="addDateScripts()"><strong>create a few examples from your date fields.</strong></a &ndash;&gt;</p>-->
+<p>这些脚本字段是根据你的数据即时计算的，可用于可视化并显示在文档中，但无法被搜索。 你可以管理这些脚本字段，并可添加新的字段，但要小心，对脚本的操作可能造成很多意外的发生</p>
 <header>
   <a
     ng-href="{{ kbnUrl.getRouteHref(indexPattern, 'addField') }}"
@@ -17,4 +18,5 @@
   per-page="perPage">
 </paginated-table>
 
-<p class="text-center" ng-if="rows.length === 0">No matching scripted fields found.</p>
+<p class="text-center" ng-if="rows.length === 0"><!--No matching scripted fields found.--> 未找到匹配的脚本字段
+</p>

@@ -50,8 +50,8 @@ uiModules.get('kibana')
         this.saving = false;
         this.editing = null;
         this.newValue = null;
-        this.placeHolder = 'source filter, accepts wildcards (e.g., `user*` to filter fields starting with \'user\')';
-
+        //this.placeHolder = 'source filter, accepts wildcards (e.g., `user*` to filter fields starting with \'user\')';
+        this.placeHolder = '源过滤器，接受通配符(例如，`user *`用于过滤以\'user\'开头的字段)';
         $scope.$watchMulti([ '[]indexPattern.sourceFilters', '$parent.fieldFilter' ], () => {
           invoke(rowScopes, '$destroy');
           rowScopes.length = 0;

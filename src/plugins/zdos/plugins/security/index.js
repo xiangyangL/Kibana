@@ -63,8 +63,10 @@ export default function (kibana) {
       }
     },
     init: function (server) {
-      console.log('******************** ZDOS Security *************************' + resolve(__dirname, 'public'));
+      console.log('******************** (lxyTest)ZDOS Security *************************' + resolve(__dirname, 'public'));
       const config = server.config();
+      console.log('********************************kibana*****************************************');
+      console.log(kibana);
       //validateConfig(config, message => server.log(['security', 'warning'], message));
 
       const thisPlugin = this;
@@ -94,8 +96,8 @@ export default function (kibana) {
           path: config.get('server.basePath') + '/'
         });
 
-        console.log('register authication successfully');
-        console.log('it will redirect to:' + loginUrl(config.get('server.basePath'),'/'));
+        console.log('register authication successfully(test)');
+        console.log('(test)it will redirect to:' + loginUrl(config.get('server.basePath'),'/'));
       });
 
       createExpose(server);
@@ -110,3 +112,6 @@ function loginUrl(baseUrl, requestedPath) {
   const next = encodeURIComponent(requestedPath);
   return `${baseUrl}/login?next=${next}`;
 }
+
+
+

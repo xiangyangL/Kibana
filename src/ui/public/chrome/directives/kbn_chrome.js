@@ -61,5 +61,4 @@ export default function (chrome, internals) {
       }
     };
   });
-
 }

@@ -6,7 +6,6 @@ import Config from './config/config';
 import loggingConfiguration from './logging/configuration';
 
 let rootDir = fromRoot('.');
-
 module.exports = class KbnServer {
   constructor(settings) {
     this.name = pkg.name;
@@ -59,6 +58,17 @@ module.exports = class KbnServer {
     ));
 
     this.listen = once(this.listen);
+    // console.log('kbn_server***********************this********************************');
+    // KbnServer {
+    //   name: 'kibana',
+    //     version: '5.1.1',
+    //     build: { number: 7, sha: '136dcc925e1a9467545ae67e9d1528852dfce5d1' },
+    //   rootDir: '/home/rt/lxy/kibana/build/kibana',
+    //     settings: { plugins: { scanDirs: [Object], paths: [] } },
+    //   config: Config {},
+    //   ready: [Function],
+    //     listen: [Function] }
+
   }
 
   /**
@@ -76,7 +86,6 @@ module.exports = class KbnServer {
       await fn.call(this, this, this.server, this.config);
     }
   }
-
   /**
    * Tell the server to listen for incoming requests, or get
    * a promise that will be resolved once the server is listening.
@@ -86,6 +95,8 @@ module.exports = class KbnServer {
   async listen() {
     let { server, config } = this;
 
+
+
     await this.ready();
     await fromNode(cb => server.start(cb));
 
@@ -94,7 +105,7 @@ module.exports = class KbnServer {
       process.send(['WORKER_LISTENING']);
     }
 
-    server.log(['listening', 'info'], `Server running at ${server.info.uri}`);
+    server.log(['listening', 'info'], `(hahaha)Server running at ${server.info.uri}`);
     return server;
   }
 

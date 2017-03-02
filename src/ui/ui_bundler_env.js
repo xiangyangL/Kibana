@@ -49,6 +49,8 @@ module.exports = class UiBundlerEnv {
       test_harness: fromRoot('src/test_harness/public'),
       querystring: 'querystring-browser',
     };
+    console.log('ui_bundler_env***************************************this.aliases');
+    console.log(this.aliases);
 
     // map of which plugins created which aliases
     this.aliasOwners = {};

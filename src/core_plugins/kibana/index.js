@@ -8,6 +8,8 @@ import scripts from './server/routes/api/scripts';
 import * as systemApi from './server/lib/system_api';
 
 const mkdirp = Promise.promisify(mkdirpNode);
+console.log('core_plugin/kibana/index*********************************');
+console.log(mkdirp);
 
 module.exports = function (kibana) {
   const kbnBaseUrl = '/app/kibana';
@@ -37,7 +39,6 @@ module.exports = function (kibana) {
           'devTools',
           'docViews'
         ],
-
         injectVars: function (server, options) {
           let config = server.config();
           return {

@@ -18,7 +18,6 @@ module.exports = class UiBundle {
     const pathBase = join(this.env.workingDir, this.id);
     this.entryPath = `${pathBase}.entry.js`;
     this.outputPath = `${pathBase}.bundle.js`;
-
   }
 
   renderContent() {
