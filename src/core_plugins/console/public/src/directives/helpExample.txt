@@ -1,8 +1,8 @@
-# index a doc
+# 创建一个索引及其文档
 PUT index/type/1
 {
   "body": "here"
 }
 
-# and get it ...
+# 这样得到它
 GET index/type/1

@@ -25,7 +25,7 @@ require('ui/modules')
           viewer.setValue(s);
           viewer.clearSelection();
         } else {
-          viewer.getSession().setValue("No history available")
+          viewer.getSession().setValue("没有历史记录可用")
         }
       });
 
