@@ -32,7 +32,7 @@ export function SenseTopNavController(Private) {
   ]);
 
   if (storage.get('version_welcome_shown') !== '@@SENSE_REVISION') {
-    controller.open('welcome')
+    controller.open('欢迎')
   }
 
   return controller

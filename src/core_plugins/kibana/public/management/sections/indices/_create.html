@@ -33,8 +33,8 @@
               </p>
             </div>
             <label>
-              Index pattern interval&nbsp;
-              <kbn-info info="The interval at which index names rotate."></kbn-info>
+              索引模式的间隔&nbsp;
+              <kbn-info info="索引名称循环的时间间隔"></kbn-info>
             </label>
             <select
               required
@@ -46,11 +46,11 @@
 
           <div class="form-group">
             <label>
-              Index name or pattern
+              索引的名称或模式
             </label>
-            <p class="help-block" ng-if="!index.nameIsPattern">Patterns allow you to define dynamic index names using * as a wildcard. Example: logstash-*</p>
-            <p class="help-block" ng-if="index.isTimeBased && index.nameIsPattern">Patterns allow you to define dynamic index names. Static text in an index name is denoted using brackets. Example: [logstash-]YYYY.MM.DD. Please note that weeks are setup to use ISO weeks which start on Monday. &mdash;
-              <small><a target="_blank" href="http://momentjs.com/docs/#/displaying/format/">Date Format Documentation</a></small></p>
+            <p class="help-block" ng-if="!index.nameIsPattern">索引模式允许您使用*作为通配符定义动态的索引名称。例如: logstash-*</p>
+            <p class="help-block" ng-if="index.isTimeBased && index.nameIsPattern">索引模式允许您定义动态的索引名称。索引名称中的静态文本使用方括号表示。例如：[logstash-]YYYY.MM.DD。请注意，周设置为使用从星期一开始的国际标准周。 &mdash;
+              <small><a target="_blank" href="http://momentjs.com/docs/#/displaying/format/">日期格式文档</a></small></p>
             <input
               ng-model="index.name"
               ng-attr-placeholder="{{index.defaultName}}"
@@ -62,39 +62,31 @@
               type="text"
               class="form-control">
               <small ng-show="index.nameInterval.name == 'weeks'">
-                <strong>Note: </strong>
-                I noticed you're using weekly indices. Kibana requires ISO weeks be used in your index creation.
-                See <a href="https://en.wikipedia.org/wiki/ISO_week_date" target="_blank" title="Wikipedia: ISO Week Date">Wikipedia: ISO Week Date</a>
+                <strong>注意： </strong>
+                我注意到您正在使用周索引。zdos要求您在您的索引创建时使用国际标准周。
+                看 <a href="https://en.wikipedia.org/wiki/ISO_week_date" target="_blank" title="Wikipedia: ISO Week Date">维基百科: 国际标准周</a>
               </small>
             </div>
 
           <div class="form-group" ng-if="canExpandIndices()">
             <label>
               <input ng-model="index.notExpandable" type="checkbox">
-              Do not expand index pattern when searching <small>(Not recommended)</small>
+              当搜索查询时不要扩展索引模式。 <small>（不推荐）</small>
             </label>
 
             <div ng-if="index.notExpandable" class="alert alert-info">
-              This index pattern will be queried directly rather than being
-              expanded into more performant searches against individual indices.
+              将直接查询此索引模式，而不是针对单个索引扩展为更高性能的搜索。
 
-              Elasticsearch will receive a query against <em>{{index.name}}</em>
-              and will have to search through all matching indices regardless
-              of whether they have data that matches the current time range.
+              ZDOS将接收针对 <em>{{index.name}}</em> 的查询，并且将不得不搜索所有匹配的索引，而不管他们是否具有与当前时间范围相匹配的数据。
+
             </div>
 
             <p class="help-block">
-              By default, searches against any time-based index pattern that
-              contains a wildcard will automatically be expanded to query only
-              the indices that contain data within the currently selected time
-              range.
+              默认情况下，针对包含通配符的任何基于时间的索引模式的搜索将自动扩展为仅查询包含当前所选时间范围内的数据的索引。
             </p>
 
             <p class="help-block">
-              Searching against the index pattern <em>logstash-*</em> will
-              actually query elasticsearch for the specific matching indices
-              (e.g. <em>logstash-2015.12.21</em>) that fall within the current
-              time range.
+               搜索针对<em>logstash-*</em>的索引模式时，将会查询zdos中属于当前时间范围内的特定匹配的索引(例如: <em>logstash-2015.12.21</em>)。
             </p>
           </div>
 
@@ -104,17 +96,17 @@
             </div>
 
             <div class="alert alert-info" ng-if="index.samples">
-              Attempted to match the following indices and aliases:
+              尝试匹配以下索引和别名：
               <ul>
                 <li ng-repeat="sample in index.samples">{{sample}}</li>
               </ul>
               <button type="button" ng-click="moreSamples(true)" class="btn btn-default">
-                Expand Search
+                扩大搜索
               </button>
             </div>
 
             <div class="alert alert-{{index.existing.class}}" ng-if="index.existing">
-              Pattern matches {{index.existing.matchPercent}} of existing indices and aliases
+              模式匹配现有索引和别名的{{index.existing.matchPercent}}。 
               <ul>
                 <li ng-repeat="match in index.existing.matches | orderBy:'toString()'| limitTo: index.sampleCount">{{match}}</li>
               </ul>
@@ -123,12 +115,12 @@
                 ng-click="moreSamples()"
                 type="button"
                 class="btn btn-default">
-                Expand Search
+                扩大搜索
               </button>
             </div>
 
             <div class="alert alert-info" ng-if="index.existing.failures.length">
-              Indices and aliases that were found, but did not match the pattern:
+              找到了以下索引和别名，但是没有和模式相匹配：
               <ul>
                 <li ng-repeat="match in index.existing.failures | limitTo: index.sampleCount">{{match}}</li>
               </ul>
@@ -136,19 +128,19 @@
                 ng-if="index.sampleCount < index.existing.matches.length"
                 ng-click="moreSamples()"
                 class="alert-link">
-                more
+                更多
               </a>
             </div>
           </section>
 
           <div class="form-group" ng-if="index.isTimeBased && !index.fetchFieldsError">
             <label>
-              Time-field name
+              时间字段名称
               &nbsp;
-              <kbn-info info="This field will be used to filter events with the global time filter"></kbn-info>
+              <kbn-info info="此字段将用于使用全局时间过滤器来过滤事件。"></kbn-info>
               &nbsp;
               <small>
-                <a ng-click="refreshFieldList();"> refresh fields</a>
+                <a ng-click="refreshFieldList();"> 刷新字段</a>
               </small>
             </label>
             <select
@@ -167,8 +159,8 @@
             ng-class="index.fetchFieldsError ? 'btn-default' : 'btn-success'"
             type="submit"
             class="btn">
-            <span ng-hide="form.name.$error.indexNameInput">{{index.fetchFieldsError || "Create" }}</span>
-            <span ng-show="form.name.$error.indexNameInput">Invalid index name pattern.</span>
+            <span ng-hide="form.name.$error.indexNameInput">{{index.fetchFieldsError || "创建" }}</span>
+            <span ng-show="form.name.$error.indexNameInput">无效的索引名称模式</span>
           </button>
         </form>
       </div>

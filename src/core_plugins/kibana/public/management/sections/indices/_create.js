@@ -89,7 +89,7 @@ uiModules.get('apps/management')
     })
     .catch(function (err) {
       if (err instanceof IndexPatternMissingIndices) {
-        notify.error('Could not locate any indices matching that pattern. Please add the index to Elasticsearch');
+        notify.error('找不到与该模式匹配的任何索引，请将该索引添加到ZDOS中。');
       }
       else notify.fatal(err);
     });
@@ -193,12 +193,12 @@ uiModules.get('apps/management')
         return;
       }
 
-      patternErrors.push('Pattern does not match any existing indices');
+      patternErrors.push('任何现有的索引都不匹配该模式。');
       const radius = Math.round(index.sampleCount / 2);
       const samples = intervals.toIndexList(index.name, index.nameInterval, -radius, radius);
 
       if (_.uniq(samples).length !== samples.length) {
-        patternErrors.push('Invalid pattern, interval does not create unique index names');
+        patternErrors.push('无效的模式，时间间隔不能创建唯一的索引名称。');
       } else {
         index.samples = samples;
       }
@@ -215,12 +215,12 @@ uiModules.get('apps/management')
 
     // we don't have enough info to continue
     if (!index.name) {
-      fetchFieldsError = 'Set an index name first';
+      fetchFieldsError = '首先设置索引名称';
       return;
     }
 
     if (useIndexList && !index.nameInterval) {
-      fetchFieldsError = 'Select the interval at which your indices are populated.';
+      fetchFieldsError = '选择填充索引的时间间隔';
       return;
     }
 
@@ -232,7 +232,7 @@ uiModules.get('apps/management')
       .catch(function (err) {
         // TODO: we should probably display a message of some kind
         if (err instanceof IndexPatternMissingIndices) {
-          fetchFieldsError = 'Unable to fetch mapping. Do you have indices matching the pattern?';
+          fetchFieldsError = '无法提取映射，你有符合该模式的索引吗？';
           return [];
         }
 
