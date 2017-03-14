@@ -113,22 +113,22 @@ function discoverController($scope, config, courier, $route, $window, Notifier,
     $scope.showInterval = !$scope.showInterval;
   };
   $scope.topNavMenu = [{
-    key: 'new',
+    key: '新建',
     description: 'New Search',
     run: function () { kbnUrl.change('/discover'); },
     testId: 'discoverNewButton',
   }, {
-    key: 'save',
+    key: '保存',
     description: 'Save Search',
     template: require('plugins/kibana/discover/partials/save_search.html'),
     testId: 'discoverSaveButton',
   }, {
-    key: 'open',
+    key: '打开',
     description: 'Open Saved Search',
     template: require('plugins/kibana/discover/partials/load_search.html'),
     testId: 'discoverOpenButton',
   }, {
-    key: 'share',
+    key: '分享',
     description: 'Share Search',
     template: require('plugins/kibana/discover/partials/share_search.html'),
     testId: 'discoverShareButton',

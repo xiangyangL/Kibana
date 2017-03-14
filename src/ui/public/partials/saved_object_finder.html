@@ -8,7 +8,7 @@
         <input
           input-focus
           ng-model="filter"
-          ng-attr-placeholder="{{finder.properties.nouns | label }} 过滤..."
+          ng-attr-placeholder="{{finder.properties.nouns | label }} 过滤器..."
           ng-keydown="finder.filterKeyDown($event)"
           class="form-control"
           name="filter"
@@ -55,7 +55,7 @@
     <li
       class="list-group-item list-group-no-results"
       ng-if="finder.hits.length === 0">
-      <p ng-bind="'没有发现匹配的 ' + finder.properties.nouns "></p>
+      <p ng-bind="'没有发现匹配的 ' + finder.properties.nouns + '.'"></p>
     </li>
   </ul>
 </paginate>

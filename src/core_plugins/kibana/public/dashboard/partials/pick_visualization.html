@@ -2,17 +2,17 @@
   ng-switch="mode"
   ng-init="mode = 'visualization'"
 >
-  <div class="localDropdownTitle">Add Panels</div>
+  <div class="localDropdownTitle">添加面板</div>
 
   <ul class="nav nav-tabs">
     <li ng-class="{active: mode == 'visualization'}">
       <a ng-click="mode='visualization'" title="Visualizations">
-        Visualization
+        可视化
       </a>
     </li>
     <li ng-class="{active: mode == 'search'}">
       <a ng-click="mode='search'" title="Searches">
-        Saved Search
+        保存的搜索
       </a>
     </li>
   </ul>
