@@ -68,7 +68,6 @@ module.exports = class KbnServer {
     //   config: Config {},
     //   ready: [Function],
     //     listen: [Function] }
-
   }
 
   /**
@@ -105,7 +104,7 @@ module.exports = class KbnServer {
       process.send(['WORKER_LISTENING']);
     }
 
-    server.log(['listening', 'info'], `(hahaha)Server running at ${server.info.uri}`);
+    server.log(['listening', 'info'], `Server running at ${server.info.uri}`);
     return server;
   }
 

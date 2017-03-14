@@ -24,11 +24,11 @@ uiModules.get('apps/management')
 
       $scope.perPage = 25;
       $scope.columns = [
-        { title: 'name' },
-        { title: 'lang' },
-        { title: 'script' },
-        { title: 'format' },
-        { title: 'controls', sortable: false }
+        { title: '名称' },
+        { title: '语言' },
+        { title: '脚本' },
+        { title: '格式' },
+        { title: '操作', sortable: false }
       ];
 
       $scope.$watchMulti(['[]indexPattern.fields', 'fieldFilter'], refreshRows);

@@ -1,4 +1,8 @@
-
+/*
+* var tmp = inflector('abc','Xyz');
+* tmp('eee');   // abcEeeXyz
+* tmp('bbb.ccc');//abcBbbCccXyz
+* */
 function upFirst(str, total) {
   return str.charAt(0).toUpperCase() + (total ? str.substr(1).toLowerCase() : str.substr(1));
 }

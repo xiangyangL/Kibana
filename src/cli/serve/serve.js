@@ -39,12 +39,9 @@ function readServerSettings(opts, extraCliOptions) {
   //       option{},
   //   ]
   // }
-  console.log('serve*******************opts.config*************************');
-  console.log(opts.config);
 
   const settings = readYamlConfig(opts.config);
-  console.log('serve*****************settings********************');
-  console.log(settings);
+  // console.log('serve*****************settings********************');
   // { server: { port: 5601 },
   //   db:
   //   { host: '127.0.0.1',
@@ -54,9 +51,7 @@ function readServerSettings(opts, extraCliOptions) {
   //     port: 3360 } }
 
 
-  console.log('serve*************************yaml***********************************************************************');
   const obj = readYamlConfig(getConfig());
-  console.log(obj);
 
   const set = _.partial(_.set, settings);
   const get = _.partial(_.get, settings);
@@ -159,8 +154,7 @@ module.exports = function (program) {
     const getCurrentSettings = () => readServerSettings(opts, this.getUnknownOptions());
     const settings = getCurrentSettings();
 
-    console.log('serve*****************settings******222222222222222');
-    console.log(settings);
+    // console.log('serve*****************settings******222222222222222');
     // { plugins:
     // { scanDirs:
     //   [ '/home/rt/lxy/kibana/build/kibana/plugins',
@@ -193,7 +187,7 @@ module.exports = function (program) {
       //   config: Config {},
       //   ready: [Function],
       //     listen: [Function] }
-      console.log('serve***********************kbnServer.setting**************************************');
+      // console.log('serve***********************kbnServer.setting**************************************');
       // { server: { port: 5601, host: '127.0.0.1' },
       //   user: 'zdos',
       //     password: 'zdht@123',
@@ -204,7 +198,7 @@ module.exports = function (program) {
       //       '/home/rt/lxy/kibana/build/kibana/src/plugins',
       //       '/home/rt/lxy/kibana/build/kibana/src/core_plugins' ],
       //       paths: [] } }
-      console.log(kbnServer.settings);
+      // console.log(kbnServer.settings);
       await kbnServer.ready();
     }
     catch (err) {

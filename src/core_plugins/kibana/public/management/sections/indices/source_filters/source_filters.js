@@ -33,15 +33,15 @@ uiModules.get('kibana')
         $scope.perPage = 25;
         $scope.columns = [
           {
-            title: 'filter'
+            title: '过滤'
           },
           {
-            title: 'matches',
+            title: '匹配项',
             sortable: false,
-            info: 'The source fields that match the filter.'
+            info: '与过滤器匹配的源字段。'
           },
           {
-            title: 'controls',
+            title: '操作',
             sortable: false
           }
         ];
@@ -74,7 +74,7 @@ uiModules.get('kibana')
                   markup: filterHtml,
                   scope: rowScope
                 },
-                size(matches) ? escape(matches.join(', ')) : '<em>The source filter doesn\'t match any known fields.</em>',
+                size(matches) ? escape(matches.join(', ')) : '<em>源过滤器未匹配到任何字段。</em>',
                 {
                   markup: controlsHtml,
                   scope: rowScope
