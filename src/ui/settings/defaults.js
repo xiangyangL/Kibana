@@ -11,21 +11,21 @@ export default function defaultSettingsProvider() {
     },
     'query:queryString:options': {
       value: '{ "analyze_wildcard": true }',
-      description: '<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html" target="_blank">Options</a> for the lucene query string parser',
+      description: 'Lucene查询字符串解析器的<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html" target="_blank">Options</a>',
       type: 'json'
     },
     'sort:options': {
       value: '{ "unmapped_type": "boolean" }',
-      description: '<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-sort.html" target="_blank">Options</a> for the Elasticsearch sort parameter',
+      description: 'Elasticsearch排序参数的<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-sort.html" target="_blank">选项</a>',
       type: 'json'
     },
     'dateFormat': {
       value: 'MMMM Do YYYY, HH:mm:ss.SSS',
-      description: 'When displaying a pretty formatted date, use this <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">format</a>',
+      description: '当显示规整格式的日期时,请使用此 <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">格式</a>',
     },
     'dateFormat:tz': {
       value: 'Browser',
-      description: 'Which timezone should be used.  "Browser" will use the timezone detected by your browser.',
+      description: '应该使用哪个时区  "Browser" 会使用你的浏览器探测到的时区.',
       type: 'select',
       options: ['Browser', ...moment.tz.names()]
     },
@@ -41,72 +41,63 @@ export default function defaultSettingsProvider() {
   ["P1YT", "YYYY"]
 ]`,
       description: (
-        'Values that define the format used in situations where timebased' +
-        ' data is rendered in order, and formatted timestamps should adapt to the' +
-        ' interval between measurements. Keys are' +
-        ' <a href="http://en.wikipedia.org/wiki/ISO_8601#Time_intervals" target="_blank">' +
-        'ISO8601 intervals.</a>'
+            '应用在时基数据场景中定义的格式化数值,应该按照顺序呈现,格式化的时间戳应该适应测量的间隔.键值是' +
+            ' <a href="http://en.wikipedia.org/wiki/ISO_8601#Time_intervals" target="_blank">' +
+            'ISO8601 间隔.</a>'
       )
     },
     'dateFormat:dow': {
       value: defaultWeekday,
-      description: 'What day should weeks start on?',
+      description: '每周从周几开始?',
       type: 'select',
       options: weekdays
     },
     'defaultIndex': {
       value: null,
-      description: 'The index to access if no index is set',
+      description: '如果没有设置索引,就访问默认索引',
     },
     'defaultColumns': {
       value: ['_source'],
-      description: 'Columns displayed by default in the Discovery tab',
+      description: '在发现栏中显示的默认列',
     },
     'metaFields': {
       value: ['_source', '_id', '_type', '_index', '_score'],
-      description: 'Fields that exist outside of _source to merge into our document when displaying it',
+      description: '存在于_source之外的字段在显示时合并到我们的文档中',
     },
     'discover:sampleSize': {
       value: 500,
-      description: 'The number of rows to show in the table',
+      description: '表格中显示的行数',
     },
     'doc_table:highlight': {
       value: true,
-      description: 'Highlight results in Discover and Saved Searches Dashboard.' +
-        'Highlighting makes requests slow when working on big documents.',
+      description: '当文档数量较大时,高亮显示会导致在发现和保存搜索面板的页面请求变变慢',
     },
     'courier:maxSegmentCount': {
       value: 30,
-      description: 'Requests in discover are split into segments to prevent massive requests from being sent to ' +
-        'elasticsearch. This setting attempts to prevent the list of segments from getting too long, which might ' +
-        'cause requests to take much longer to process'
+      description: '发现中的请求被分成段，以防止大量请求发送到elasticsearch。 此设置会尝试防止段列表过长，这可能会导致请求处理时间过长'
     },
     'courier:ignoreFilterIfFieldNotInIndex': {
       value: false,
-      description: 'This configuration enhances support for dashboards containing visualizations accessing dissimilar indexes. ' +
-        'When set to false, all filters are applied to all visualizations. ' +
-        'When set to true, filter(s) will be ignored for a visualization ' +
-        'when the visualization\'s index does not contain the filtering field.'
+      description: '此配置增强了对包含访问不同索引的可视化的仪表板的支持。 设置为false时，所有过滤器都应用于所有可视化。 设置为true时，当可视化对象的索引不包含过滤字段时，将忽略可视化对象的过滤器.'
     },
     'fields:popularLimit': {
       value: 10,
-      description: 'The top N most popular fields to show',
+      description: '前N个最受欢迎的字段要显示',
     },
     'histogram:barTarget': {
       value: 50,
-      description: 'Attempt to generate around this many bars when using "auto" interval in date histograms',
+      description: '在日期直方图中使用“自动”间隔时，尝试生成此许多条',
     },
     'histogram:maxBars': {
       value: 100,
-      description: 'Never show more than this many bars in date histograms, scale values if needed',
+      description: '在日期直方图中不显示多个条形，如果需要，可以缩放比例值',
     },
     'visualization:tileMap:maxPrecision': {
       value: 7,
-      description: 'The maximum geoHash precision displayed on tile maps: 7 is high, 10 is very high, ' +
-      '12 is the max. ' +
+      description: '在地图上显示的最大geoHash精度：7是高，10是非常高，12是最大.' +
       '<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/' +
       'search-aggregations-bucket-geohashgrid-aggregation.html#_cell_dimensions_at_the_equator" target="_blank">' +
-      'Explanation of cell dimensions</a>',
+      '单元尺寸说明</a>',
     },
     'visualization:tileMap:WMSdefaults': {
       value: JSON.stringify({
@@ -122,50 +113,47 @@ export default function defaultSettingsProvider() {
         }
       }, null, 2),
       type: 'json',
-      description: 'Default <a href="http://leafletjs.com/reference.html#tilelayer-wms" target="_blank">properties</a> for the WMS map server support in the tile map'
+      description: '瓦片图中WMS地图服务器支持的默认 <a href="http://leafletjs.com/reference.html#tilelayer-wms" target="_blank">属性</a>'
     },
     'visualization:colorMapping': {
       type: 'json',
       value: JSON.stringify({
         Count: '#6eadc1'
       }),
-      description: 'Maps values to specified colors within visualizations'
+      description: '将值映射到可视化内的指定颜色'
     },
     'visualization:loadingDelay': {
       value: '2s',
-      description: 'Time to wait before dimming visualizations during query'
+      description: '在查询期间调暗可视化之前等待的时间'
     },
     'visualization:dimmingOpacity': {
       type: 'number',
       value: 0.5,
-      description: 'The opacity of the chart items that are dimmed when highlighting another element of the chart. ' +
-      'The lower this number, the more the highlighted element will stand out.' +
-      'This must be a number between 0 and 1.'
+      description: '突出显示图表的其他元素时，图表项目的不透明度变暗。 该数字越低，突出显示的元素就越突出。这必须是介于0和1之间的数字.'
     },
     'csv:separator': {
       value: ',',
-      description: 'Separate exported values with this string',
+      description: '使用此字符串分隔导出的值',
     },
     'csv:quoteValues': {
       value: true,
-      description: 'Should values be quoted in csv exports?',
+      description: '应该在csv导出中引用值吗?',
     },
     'history:limit': {
       value: 10,
-      description: 'In fields that have history (e.g. query inputs), show this many recent values',
+      description: '在有历史记录的字段（例如，查询输入）中，显示此许多最近的值',
     },
     'shortDots:enable': {
       value: false,
-      description: 'Shorten long fields, for example, instead of foo.bar.baz, show f.b.baz',
+      description: '缩短长字段,例如,用f.b.baz替代foo.bar.baz',
     },
     'truncate:maxHeight': {
       value: 115,
-      description: 'The maximum height that a cell in a table should occupy. Set to 0 to disable truncation'
+      description: '表格中单元格应占用的最大高度。 设置为0以禁用截断'
     },
     'indexPattern:fieldMapping:lookBack': {
       value: 5,
-      description: 'For index patterns containing timestamps in their names, look for this many recent matching ' +
-        'patterns from which to query the field mapping'
+      description: '对于在其名称中包含时间戳的索引模式，查找许多最近匹配模式，以从中查询出字段映射'
     },
     'format:defaultTypeMap': {
       type: 'json',
@@ -178,33 +166,32 @@ export default function defaultSettingsProvider() {
   "_source": { "id": "_source", "params": {} },
   "_default_": { "id": "string", "params": {} }
 }`,
-      description: 'Map of the format name to use by default for each field type. ' +
-        '"_default_" is used if the field type is not mentioned explicitly'
+      description: '默认为每个字段类型使用格式名称的映射.如果未明确提及字段类型，则使用“_default_”'
     },
     'format:number:defaultPattern': {
       type: 'string',
       value: '0,0.[000]',
-      description: 'Default <a href="http://numeraljs.com/" target="_blank">numeral format</a> for the "number" format'
+      description: '“数字”格式的默认<a href="http://numeraljs.com/" target="_blank">数字格式</a>'
     },
     'format:bytes:defaultPattern': {
       type: 'string',
       value: '0,0.[000]b',
-      description: 'Default <a href="http://numeraljs.com/" target="_blank">numeral format</a> for the "bytes" format'
+      description: '“字节”格式的默认<a href="http://numeraljs.com/" target="_blank">数字格式</a>'
     },
     'format:percent:defaultPattern': {
       type: 'string',
       value: '0,0.[000]%',
-      description: 'Default <a href="http://numeraljs.com/" target="_blank">numeral format</a> for the "percent" format'
+      description: '“百分比”格式的默认<a href="http://numeraljs.com/" target="_blank">数字格式</a>'
     },
     'format:currency:defaultPattern': {
       type: 'string',
       value: '($0,0.[00])',
-      description: 'Default <a href="http://numeraljs.com/" target="_blank">numeral format</a> for the "currency" format'
+      description: '“货币”格式的默认<a href="http://numeraljs.com/" target="_blank">数字格式</a>'
     },
     'savedObjects:perPage': {
       type: 'number',
       value: 5,
-      description: 'Number of objects to show per page in the load dialog'
+      description: '在加载对话框中每页显示的对象数'
     },
     'timepicker:timeDefaults': {
       type: 'json',
@@ -214,7 +201,7 @@ export default function defaultSettingsProvider() {
   "to": "now",
   "mode": "quick"
 }`,
-      description: 'The timefilter selection to use when Kibana is started without one'
+      description: '当Kibana没有启动时使用的时间过滤器选择.'
     },
     'timepicker:refreshIntervalDefaults': {
       type: 'json',
@@ -224,40 +211,36 @@ export default function defaultSettingsProvider() {
   "pause": false,
   "value": 0
 }`,
-      description: 'The timefilter\'s default refresh interval'
+      description: '时间过滤器的默认刷新间隔'
     },
     'dashboard:defaultDarkTheme': {
       value: false,
-      description: 'New dashboards use dark theme by default'
+      description: '默认情况下，新仪表板使用深色主题'
     },
     'filters:pinnedByDefault': {
       value: false,
-      description: 'Whether the filters should have a global state (be pinned) by default'
+      description: '默认情况下，过滤器是否应该具有全局状态（被固定）'
     },
     'notifications:banner': {
       type: 'markdown',
-      description: 'A custom banner intended for temporary notices to all users. <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="_blank">Markdown supported</a>.',
+      description: '用于向所有用户发送临时通知的自定义标题. <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="_blank">支持Markdown</a>.',
       value: ''
     },
     'notifications:lifetime:banner': {
       value: 3000000,
-      description: 'The time in milliseconds which a banner notification ' +
-      'will be displayed on-screen for. Setting to Infinity will disable.'
+      description: '屏幕上显示标题通知的时间（以毫秒为单位）。 设置为无限将禁用.'
     },
     'notifications:lifetime:error': {
       value: 300000,
-      description: 'The time in milliseconds which an error notification ' +
-      'will be displayed on-screen for. Setting to Infinity will disable.'
+      description: '屏幕上显示的错误通知的时间(以毫秒为单位)。 设置为无限将禁用.'
     },
     'notifications:lifetime:warning': {
       value: 10000,
-      description: 'The time in milliseconds which a warning notification ' +
-        'will be displayed on-screen for. Setting to Infinity will disable.'
+      description: '屏幕上显示的告警通知的时间(以毫秒为单位)。 设置为无限将禁用'
     },
     'notifications:lifetime:info': {
       value: 5000,
-      description: 'The time in milliseconds which an information notification ' +
-        'will be displayed on-screen for. Setting to Infinity will disable.'
+      description: '屏幕上显示的info级别通知的时间(以毫秒为单位)。 设置为无限将禁用.'
     },
     // Timelion stuff
     'timelion:showTutorial': {
@@ -298,9 +281,7 @@ export default function defaultSettingsProvider() {
     },
     'state:storeInSessionStorage': {
       value: false,
-      description: 'The URL can sometimes grow to be too large for some browsers to ' +
-        'handle. To counter-act this we are testing if storing parts of the URL in ' +
-        'sessions storage could help. Please let us know how it goes!'
+      description: '网址有时可能会变得太大，某些浏览器无法处理。 为了防止这样的事情发生，我们正在测试在会话存储中存储URL的部分是否有帮助。 请让我们持续关注它的发展！'
     }
   };
 };
