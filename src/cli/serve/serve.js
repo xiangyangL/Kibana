@@ -24,12 +24,35 @@ const pathCollector = function () {
   };
 };
 
+
 const configPathCollector = pathCollector();
 const pluginDirCollector = pathCollector();
 const pluginPathCollector = pathCollector();
 
 function readServerSettings(opts, extraCliOptions) {
+  // console.log('serve*******************opts*************************');
+  // Commands{
+  //   commands:[],
+  //     options:[
+  //       option{},
+  //       option{},
+  //       option{},
+  //   ]
+  // }
+
   const settings = readYamlConfig(opts.config);
+  // console.log('serve*****************settings********************');
+  // { server: { port: 5601 },
+  //   db:
+  //   { host: '127.0.0.1',
+  //     user: 'zdos',
+  //     password: 'zdht@123',
+  //     database: 'zdos',
+  //     port: 3360 } }
+
+
+  const obj = readYamlConfig(getConfig());
+
   const set = _.partial(_.set, settings);
   const get = _.partial(_.get, settings);
   const has = _.partial(_.has, settings);
@@ -131,6 +154,13 @@ module.exports = function (program) {
     const getCurrentSettings = () => readServerSettings(opts, this.getUnknownOptions());
     const settings = getCurrentSettings();
 
+    // console.log('serve*****************settings******222222222222222');
+    // { plugins:
+    // { scanDirs:
+    //   [ '/home/rt/lxy/kibana/build/kibana/plugins',
+    //     '/home/rt/lxy/kibana/build/kibana/src/plugins',
+    //     '/home/rt/lxy/kibana/build/kibana/src/core_plugins' ],
+    //     paths: [] } }
     if (canCluster && opts.dev && !isWorker) {
       // stop processing the action and handoff to cluster manager
       const ClusterManager = require('../cluster/cluster_manager');
@@ -139,9 +169,36 @@ module.exports = function (program) {
     }
 
     let kbnServer = {};
+
+    //                                          *******************取到kbn_server
+
     const KbnServer = require('../../server/kbn_server');
+    // console.log('serve***********************kbnServer***********************************');
+    // {}
     try {
       kbnServer = new KbnServer(settings);
+      // console.log('serve***********************kbnServer*************2222222222222222222222');
+      // KbnServer {
+      //   name: 'kibana',
+      //     version: '5.1.1',
+      //     build: { number: 7, sha: '136dcc925e1a9467545ae67e9d1528852dfce5d1' },
+      //   rootDir: '/home/rt/lxy/kibana/build/kibana',
+      //     settings: { plugins: { scanDirs: [Object], paths: [] } },
+      //   config: Config {},
+      //   ready: [Function],
+      //     listen: [Function] }
+      // console.log('serve***********************kbnServer.setting**************************************');
+      // { server: { port: 5601, host: '127.0.0.1' },
+      //   user: 'zdos',
+      //     password: 'zdht@123',
+      //   database: 'zdos',
+      //   plugins:
+      //   { scanDirs:
+      //     [ '/home/rt/lxy/kibana/build/kibana/plugins',
+      //       '/home/rt/lxy/kibana/build/kibana/src/plugins',
+      //       '/home/rt/lxy/kibana/build/kibana/src/core_plugins' ],
+      //       paths: [] } }
+      // console.log(kbnServer.settings);
       await kbnServer.ready();
     }
     catch (err) {

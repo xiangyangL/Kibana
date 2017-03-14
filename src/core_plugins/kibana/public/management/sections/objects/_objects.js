@@ -39,7 +39,6 @@ uiModules.get('apps/management')
             };
           });
         });
-
         $q.all(services).then(function (data) {
           $scope.services = sortBy(data, 'title');
           let tab = $scope.services[0];
@@ -105,7 +104,7 @@ uiModules.get('apps/management')
         .catch(error => notify.error(error));
 
       function retrieveAndExportDocs(objs) {
-        if (!objs.length) return notify.error('No saved objects to export.');
+        if (!objs.length) return notify.error('没有保存的对象要导出');
         es.mget({
           index: kbnIndex,
           body: {docs: objs.map(transformToMget)}
@@ -130,7 +129,7 @@ uiModules.get('apps/management')
         try {
           docs = JSON.parse(fileContents);
         } catch (e) {
-          notify.error('The file could not be processed.');
+          notify.error('无法处理该文件。');
         }
 
         return Promise.map(docs, function (doc) {

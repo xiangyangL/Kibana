@@ -15,7 +15,9 @@ module.exports = function (grunt) {
     target: __dirname + '/target', // location of the compressed build targets
     testUtilsDir: __dirname + '/src/test_utils',
     configFile: __dirname + '/src/config/kibana.yml',
-    downloadUri: 'http://172.16.90.6:8000',
+    downloadUri: 'http://10.0.0.5:8080',
+    //http://172.16.90.6:8000
+
 
     karmaBrowser: (function () {
       if (grunt.option('browser')) {

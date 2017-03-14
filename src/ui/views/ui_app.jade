@@ -29,15 +29,15 @@ block content
       background: #3caed2;
     }
 
-    .kibanaLoader__logo {
-      width: 150px;
-      height: 100%;
-      padding: 20px;
-      background-color: #E8488B;
-      -webkit-animation: colorShift 3s infinite;
-              animation: colorShift 3s infinite;
-      box-shadow: inset -10px 0 20px -10px rgba(0, 0, 0, 0.5);
-    }
+    /*.kibanaLoader__logo {*/
+      /*width: 150px;*/
+      /*height: 100%;*/
+      /*padding: 20px;*/
+      /*background-color: #E8488B;*/
+      /*-webkit-animation: colorShift 3s infinite;*/
+              /*animation: colorShift 3s infinite;*/
+      /*box-shadow: inset -10px 0 20px -10px rgba(0, 0, 0, 0.5);*/
+    /*}*/
 
     .kibanaLoader__content {
       display: -webkit-box;
@@ -63,40 +63,40 @@ block content
       padding-bottom: 16px;
     }
 
-    @-webkit-keyframes colorShift {
-      0% {
-        background-color: #DD4484;
-      }
-      33% {
-        background-color: #E4BB51;
-      }
-      66% {
-        background-color: #8AC336;
-      }
-      100% {
-        background-color: #DD4484;
-      }
-    }
+    /*@-webkit-keyframes colorShift {*/
+      /*0% {*/
+        /*background-color: #DD4484;*/
+      /*}*/
+      /*33% {*/
+        /*background-color: #E4BB51;*/
+      /*}*/
+      /*66% {*/
+        /*background-color: #8AC336;*/
+      /*}*/
+      /*100% {*/
+        /*background-color: #DD4484;*/
+      /*}*/
+    /*}*/
 
-    @keyframes colorShift {
-      0% {
-        background-color: #DD4484;
-      }
-      33% {
-        background-color: #E4BB51;
-      }
-      66% {
-        background-color: #8AC336;
-      }
-      100% {
-        background-color: #DD4484;
-      }
-    }
+    /*@keyframes colorShift {*/
+      /*0% {*/
+        /*background-color: #DD4484;*/
+      /*}*/
+      /*33% {*/
+        /*background-color: #E4BB51;*/
+      /*}*/
+      /*66% {*/
+        /*background-color: #8AC336;*/
+      /*}*/
+      /*100% {*/
+        /*background-color: #DD4484;*/
+      /*}*/
+    /*}*/
 
-    /**
-     * 1. If we change the height or top margin, we'll need to increase the top margin on
-     *    kibanaLoader too.
-     */
+    /*!***/
+     /** 1. If we change the height or top margin, we'll need to increase the top margin on*/
+     /**    kibanaLoader too.*/
+     /**!*/
     .kibanaLoadingMessage {
       font-family: "Open Sans", Helvetica, Arial, sans-serif;
       color: #8c8c8c;
@@ -108,27 +108,82 @@ block content
       line-height: 1.4;
       opacity: 0.8;
     }
+    .kibanaLoader__logo {
+      width: 100px;
+      height: 100px;
+
+      position: relative;
+      margin: 42.5px 0 0 50px;
+    }
+
+    .double-bounce1, .double-bounce2 {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #67CF22;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      -webkit-animation: bounce 2.0s infinite ease-in-out;
+      animation: bounce 2.0s infinite ease-in-out;
+    }
+
+    .double-bounce2 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    @-webkit-keyframes bounce {
+      0%, 100% {
+        -webkit-transform: scale(0.0);
+        background-color: #FFFFFF;
+      }
+      50% {
+        -webkit-transform: scale(1.0);
+        background-color: #e8488b;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: scale(0.0);
+        background-color: #FFFFFF;
+        -webkit-transform: scale(0.0);
+      }
+      50% {
+        transform: scale(1.0);
+        background-color: #e8488b;
+        -webkit-transform: scale(1.0);
+      }
+    }
 
   .kibanaWelcomeView
     .kibanaLoader
       .kibanaLoader__logo
-        .kibanaWelcomeLogo
+        .double-bounce1
+        .double-bounce2
       .kibanaLoader__content
-        | Loading ZDOS
+        | 正在加载 ZDOS
     .kibanaLoadingMessage.
-      Give me a moment here. I&rsquo;m loading a whole bunch of code. Don&rsquo;t worry, all this
-      good stuff will be cached up for next time!
+      请稍等片刻，当前正在加载大量代码。这些东西将被缓存起来以备下次访问！
 
   script.
     window.onload = function () {
-
+      //http://127.0.0.1:5601/app/kibana
       var hideLoadingMessage = /#.*[?&]embed(&|$|=true)/.test(window.location.href);
+      //console.log('ui_app---------------------------------hideLoadingMessage------------------------------');
+      //false
+
       if (hideLoadingMessage) {
         var loading = document.querySelector('.kibanaWelcomeView');
         loading.removeChild(loading.lastChild);
       }
 
       var buildNum = #{kibanaPayload.buildNum};
+      //console.log('ui_app---------------------------------#{kibanaPayload.buildNum}--------------------------');
+      //7
       var cacheParam = buildNum ? '?v=' + buildNum : '';
       function bundleFile(filename) {
         var anchor = document.createElement('a');
@@ -144,6 +199,8 @@ block content
 
       (function next() {
         var file = files.shift();
+        //console.log('ui_app************************file*****************************');
+        //http://127.0.0.1:5601/bundles/commons.style.css?v=7
         if (!file) return;
 
         var failure = function () {
@@ -162,6 +219,8 @@ block content
         }
 
         var type = /\.js(\?.+)?$/.test(file) ? 'script' : 'link';
+        //console.log('ui_app-------------------type---------------------------------------');
+        //script
         var dom = document.createElement(type);
         dom.setAttribute('async', '');
         dom.addEventListener('error', failure);

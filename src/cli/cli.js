@@ -4,7 +4,9 @@ import Command from './command';
 import serveCommand from './serve/serve';
 
 const argv = process.env.kbnWorkerArgv ? JSON.parse(process.env.kbnWorkerArgv) : process.argv.slice();
+//
 const program = new Command('bin/kibana');
+
 
 program
 .version(pkg.version)
@@ -15,6 +17,7 @@ program
 
 // attach commands
 serveCommand(program);
+
 
 program
 .command('help <command>')

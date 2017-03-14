@@ -12,6 +12,19 @@ import UiBundleCollection from './ui_bundle_collection';
 import UiBundlerEnv from './ui_bundler_env';
 
 export default async (kbnServer, server, config) => {
+  // console.log('------------------------------------kbnServer-----------------------------------');
+  // KbnServer {
+  //   name: 'kibana',
+  //     version: '5.1.1',
+  //     build: { number: 7, sha: '136dcc925e1a9467545ae67e9d1528852dfce5d1' },
+  //   rootDir: '/home/rt/lxy/kibana/build/kibana',
+  //     settings: { plugins: { scanDirs: [Object], paths: [] } },
+  //   config: Config {},
+  //   ready: [Function],
+  //     listen: [Function],
+  //   server:
+  // console.log('--------------------------------------config------------------------------------');
+  // {}
   const uiExports = kbnServer.uiExports = new UiExports({
     urlBasePath: config.get('server.basePath')
   });

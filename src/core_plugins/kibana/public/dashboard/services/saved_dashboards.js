@@ -11,7 +11,7 @@ const module = uiModules.get('app/dashboard');
 // edited by the object editor.
 require('plugins/kibana/management/saved_object_registry').register({
   service: 'savedDashboards',
-  title: 'dashboards'
+  title: '仪表盘'
 });
 
 // This is the only thing that gets injected into controllers

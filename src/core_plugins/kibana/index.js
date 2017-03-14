@@ -37,7 +37,6 @@ module.exports = function (kibana) {
           'devTools',
           'docViews'
         ],
-
         injectVars: function (server, options) {
           let config = server.config();
           return {

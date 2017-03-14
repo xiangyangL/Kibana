@@ -57,7 +57,6 @@ uiModules
       }
 
       this.links = $scope.chrome.getNavLinks();
-
       // links don't cause full-navigation events in certain scenarios
       // so we force them when needed
       this.ensureNavigation = appSwitcherEnsureNavigation;

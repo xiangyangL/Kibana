@@ -70,7 +70,7 @@ uiModules
 
         return indexPattern.save()
         .then(function () {
-          notify.info('Saved Field "' + self.field.name + '"');
+          notify.info('保存字段 "' + self.field.name + '"');
           redirectAway();
         });
       };
@@ -82,7 +82,7 @@ uiModules
         indexPattern.fields.remove({ name: field.name });
         return indexPattern.save()
         .then(function () {
-          notify.info('Deleted Field "' + field.name + '"');
+          notify.info('删除字段 "' + field.name + '"');
           redirectAway();
         });
       };
@@ -173,7 +173,7 @@ uiModules
         // explicitly set to undefined to prevent inheritting the prototypes id
         def.id = undefined;
         def.resolvedTitle = def.title;
-        def.title = '- default - ';
+        def.title = '- 默认 - ';
 
         return def;
       }

@@ -7,11 +7,11 @@
     </p>
   </div>
   <div ng-if="editor.creating" class="form-group">
-    <label>Name</label>
+    <label>名称</label>
     <input
       ng-model="editor.field.name"
       required
-      placeholder="New Scripted Field"
+      placeholder="新的脚本字段"
       input-focus
       class="form-control">
   </div>
@@ -25,18 +25,18 @@
   </div>
 
   <div ng-if="editor.field.scripted" class="form-group">
-    <label>Language</label>
+    <label>语言</label>
     <select
       ng-model="editor.field.lang"
       ng-options="lang as lang for lang in editor.scriptingLangs"
       required
       class="form-control">
-      <option value="">-- Select Language --</option>
+      <option value="">-- 选择语言 --</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label>Type</label>
+    <label>类型</label>
     <select
       ng-if="editor.field.scripted"
       ng-model="editor.field.type"
@@ -52,18 +52,19 @@
 
   <div class="form-group">
     <span class="pull-right text-warning hintbox-label" ng-click="editor.showFormatHelp = !editor.showFormatHelp">
-      <i class="fa fa-warning"></i> Warning
+      <i class="fa fa-warning"></i> 警告
     </span>
 
-    <label>Format <small>(Default: <i>{{editor.defFormatType.resolvedTitle}}</i>)</small></label>
+    <label>格式 <small>(默认: <i>{{editor.defFormatType.resolvedTitle}}</i>)</small></label>
 
     <div class="hintbox" ng-if="editor.showFormatHelp">
       <h4 class="hintbox-heading">
-        <i class="fa fa-warning text-warning"></i> Format Warning
+        <i class="fa fa-warning text-warning"></i> 格式警告
       </h4>
 
       <p>
-        Formatting allows you to control the way that specific values are displayed. It can also cause values to be completely changed and prevent highlighting in Discover from working.
+        <!--Formatting allows you to control the way that specific values are displayed. It can also cause values to be completely changed and prevent highlighting in Discover from working.-->
+        格式化允许您控制显示特定值的方式。 它也可能导致值被完全更改，并阻止在数据分析工作中突出显示。
       </p>
     </div>
 
@@ -81,7 +82,7 @@
   </div>
 
   <div class="form-group">
-    <label for="editor.field.count">Popularity</label>
+    <label for="editor.field.count">人气</label>
     <div class="input-group">
 
       <input
@@ -110,22 +111,24 @@
 
   <div ng-if="editor.field.scripted">
     <div class="form-group">
-      <label>Script</label>
+      <label>脚本</label>
       <textarea required class="field-editor_script-input form-control text-monospace" ng-model="editor.field.script"></textarea>
     </div>
 
     <div class="form-group">
       <div class="hintbox">
         <h4>
-          <i class="fa fa-warning text-warning"></i> Proceed with caution
+          <i class="fa fa-warning text-warning"></i> 谨慎操作
         </h4>
 
         <p>
-          Please familiarize yourself with <a target="_window" ng-href="{{ editor.docLinks.scriptFields }}">script fields <i class="fa-link fa"></i></a> and with <a target="_window" ng-href="">scripts in aggregations <i class="fa-link fa"></i></a> before using scripted fields.
+          <!--Please familiarize yourself with <a target="_window" ng-href="{{ editor.docLinks.scriptFields }}">script fields <i class="fa-link fa"></i></a> and with <a target="_window" ng-href="">scripts in aggregations <i class="fa-link fa"></i></a> before using scripted fields.-->
+          在使用脚本字段之前，请熟悉<a target="_window" ng-href="{{ editor.docLinks.scriptFields }}">脚本字段 <i class="fa-link fa"></i></a>和 <a target="_window" ng-href="">聚合中的脚本 <i class="fa-link fa"></i></a>。
         </p>
 
         <p>
-          Scripted fields can be used to display and aggregate calculated values. As such, they can be very slow, and if done incorrectly, can cause Kibana to be unusable. There's no safety net here. If you make a typo, unexpected exceptions will be thrown all over the place!
+          <!--Scripted fields can be used to display and aggregate calculated values. As such, they can be very slow, and if done incorrectly, can cause Kibana to be unusable. There's no safety net here. If you make a typo, unexpected exceptions will be thrown all over the place!-->
+          脚本字段可用于显示和聚合计算值。 因此，它们可能非常缓慢，如果操作不正确，可能导致Zdos不可用。 这里没有安全网。 如果你输入错误，不可预料的错误将出现在各个地方！
         </p>
       </div>
     </div>
@@ -133,48 +136,63 @@
     <div class="form-group">
       <div class="hintbox">
         <h4>
-          <i class="fa fa-question-circle text-info"></i> Scripting Help
+          <i class="fa fa-question-circle text-info"></i> 脚本化说明
         </h4>
 
+        <!--<p>-->
+          <!--By default, Kibana scripted fields use <a target="_window" ng-href="{{editor.docLinks.painless}}">Painless <i class="fa-link fa"></i></a>, a simple and secure scripting language designed specifically for use with Elasticsearch.  To access values in the document use the following format:-->
+        <!--</p>-->
         <p>
-          By default, Kibana scripted fields use <a target="_window" ng-href="{{editor.docLinks.painless}}">Painless <i class="fa-link fa"></i></a>, a simple and secure scripting language designed specifically for use with Elasticsearch.  To access values in the document use the following format:
+          默认情况下，Zdos脚本字段使用<a target="_window" ng-href="{{editor.docLinks.painless}}">Painless <i class="fa-link fa"></i></a>，一种专为与Elasticsearch一起使用而设计的简单安全的脚本语言。 要访问文档中的值，请使用以下格式：
         </p>
 
         <p><code>doc['some_field'].value</code></p>
 
+        <!--<p>-->
+          <!--Painless is powerful but easy to use. It provides access to many <a target="_window" ng-href="{{editor.docLinks.painlessApi}}">native Java APIs <i class="fa-link fa"></i></a>. Read up on its <a target="_window" ng-href="{{editor.docLinks.painlessSyntax}}">syntax <i class="fa-link fa"></i></a> and you'll be up to speed in no time!-->
+        <!--</p>-->
         <p>
-          Painless is powerful but easy to use. It provides access to many <a target="_window" ng-href="{{editor.docLinks.painlessApi}}">native Java APIs <i class="fa-link fa"></i></a>. Read up on its <a target="_window" ng-href="{{editor.docLinks.painlessSyntax}}">syntax <i class="fa-link fa"></i></a> and you'll be up to speed in no time!
+          Painless功能强大并且易于使用。 它提供学多对本地<a target="_window" ng-href="{{editor.docLinks.painlessApi}}">Java API <i class="fa-link fa"></i></a>的访问。 阅读它的<a target="_window" ng-href="{{editor.docLinks.painlessSyntax}}">语法 <i class="fa-link fa"></i></a>，你将立刻得到速度的提升！
+        </p>
+
+        <!--<p>-->
+          <!--Kibana currently imposes one special limitation on the painless scripts you write. They cannot contain named functions.-->
+        <!--</p>-->
+        <p>
+          Zdos目前对你编写的painless脚本施加了一个特殊限制，即它们不能包含命名函数。
+        </p>
+
+        <!--<p>-->
+          <!--Coming from an older version of Kibana? The <a target="_window" ng-href="{{editor.docLinks.luceneExpressions}}">Lucene Expressions <i class="fa-link fa"></i></a> you know and love are still available. Lucene expressions are a lot like JavaScript, but limited to basic arithmetic, bitwise and comparison operations.-->
+        <!--</p>-->
+        <p>
+          来自于旧版本的Zdos，你所熟知和喜爱的Lucene表达式仍然可用，Lucene很像JavaScript，但仅限于基本运算、位运算符和比较操作。
         </p>
 
         <p>
-          Kibana currently imposes one special limitation on the painless scripts you write. They cannot contain named functions.
-        </p>
-
-        <p>
-          Coming from an older version of Kibana? The <a target="_window" ng-href="{{editor.docLinks.luceneExpressions}}">Lucene Expressions <i class="fa-link fa"></i></a> you know and love are still available. Lucene expressions are a lot like JavaScript, but limited to basic arithmetic, bitwise and comparison operations.
-        </p>
-
-        <p>
-          There are a few limitations when using Lucene Expressions:
+          这里是使用Lucene表达式时的一些限制：
         </p>
         <ul>
-          <li> Only numeric, boolean, date, and geo_point fields may be accessed </li>
-          <li> Stored fields are not available </li>
-          <li> If a field is sparse (only some documents contain a value), documents missing the field will have a value of 0 </li>
+          <!--<li> Only numeric, boolean, date, and geo_point fields may be accessed </li>-->
+          <li>仅能访问numeric, boolean, date, and geo_point字段</li>
+          <!--<li> Stored fields are not available </li>-->
+          <li>存储的字段不可用</li>
+          <!--<li> If a field is sparse (only some documents contain a value), documents missing the field will have a value of 0 </li>-->
+          <li>如果字段稀疏（只有一些文档包含值），则缺少该字段的文档的值为0</li>
         </ul>
 
         <p>
-          Here are all the operations available to lucene expressions:
+          这里是所有可用的Lucene表达式的操作：
         </p>
         <ul>
-          <li> Arithmetic operators: + - * / % </li>
-          <li> Bitwise operators: | & ^ ~ << >> >>> </li>
-          <li> Boolean operators (including the ternary operator): && || ! ?: </li>
-          <li> Comparison operators: < <= == >= > </li>
-          <li> Common mathematic functions: abs ceil exp floor ln log10 logn max min sqrt pow </li>
-          <li> Trigonometric library functions: acosh acos asinh asin atanh atan atan2 cosh cos sinh sin tanh tan </li>
-          <li> Distance functions: haversin </li>
-          <li> Miscellaneous functions: min, max </li>
+          <li> 算术运算符： + - * / % </li>
+          <li> 位运算符： | & ^ ~ << >> >>> </li>
+          <li> 布尔运算符（包括三元运算符）： && || ! ?: </li>
+          <li> 比较运算符： < <= == >= > </li>
+          <li> 常见的数学函数： abs ceil exp floor ln log10 logn max min sqrt pow </li>
+          <li> 三角函数库函数： acosh acos asinh asin atanh atan atan2 cosh cos sinh sin tanh tan </li>
+          <li> 距离函数： haversin </li>
+          <li> 其他函数： min, max </li>
         </ul>
       </div>
     </div>
@@ -188,8 +206,8 @@
       The type of this field changes across indices. It is unavailable for many analysis functions. The indices per type are as follows:
       <table class="table">
       <thead>
-        <th> Field Type </th>
-        <th> Index Names </th>
+        <th> 字段类型 </th>
+        <th> 索引名称 </th>
       </thead>
       <tbody>
       <tr ng-repeat="(type, indices) in editor.field.conflictDescriptions">
@@ -206,13 +224,13 @@
       ng-click="editor.cancel()"
       aria-label="Cancel"
       class="btn btn-primary">
-      Cancel
+      取消
     </button>
     <button
       type="button"
       ng-if="editor.field.scripted && !editor.creating"
       confirm-click="editor.delete()"
-      confirmation="Are you sure want to delete '{{ editor.field.name }}'? This action is irreversible!"
+      confirmation="你确定要删除 '{{ editor.field.name }}'? 这个动作是不可逆的!"
       aria-label="Delete"
       class="btn btn-danger">
       Delete Field
@@ -222,7 +240,7 @@
       type="submit"
       aria-label="{{ editor.creating ? 'Create' : 'Update' }} Field"
       class="btn btn-success">
-      {{ editor.creating ? 'Create' : 'Update' }} Field
+      {{ editor.creating ? '创建' : '更新' }} 字段
     </button>
   </div>
 </form>

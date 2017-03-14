@@ -33,15 +33,15 @@ uiModules.get('kibana')
         $scope.perPage = 25;
         $scope.columns = [
           {
-            title: 'filter'
+            title: '过滤'
           },
           {
-            title: 'matches',
+            title: '匹配项',
             sortable: false,
-            info: 'The source fields that match the filter.'
+            info: '与过滤器匹配的源字段。'
           },
           {
-            title: 'controls',
+            title: '操作',
             sortable: false
           }
         ];
@@ -50,8 +50,8 @@ uiModules.get('kibana')
         this.saving = false;
         this.editing = null;
         this.newValue = null;
-        this.placeHolder = 'source filter, accepts wildcards (e.g., `user*` to filter fields starting with \'user\')';
-
+        //this.placeHolder = 'source filter, accepts wildcards (e.g., `user*` to filter fields starting with \'user\')';
+        this.placeHolder = '源过滤器，接受通配符(例如，`user *`用于过滤以\'user\'开头的字段)';
         $scope.$watchMulti([ '[]indexPattern.sourceFilters', '$parent.fieldFilter' ], () => {
           invoke(rowScopes, '$destroy');
           rowScopes.length = 0;
@@ -74,7 +74,7 @@ uiModules.get('kibana')
                   markup: filterHtml,
                   scope: rowScope
                 },
-                size(matches) ? escape(matches.join(', ')) : '<em>The source filter doesn\'t match any known fields.</em>',
+                size(matches) ? escape(matches.join(', ')) : '<em>源过滤器未匹配到任何字段。</em>',
                 {
                   markup: controlsHtml,
                   scope: rowScope
