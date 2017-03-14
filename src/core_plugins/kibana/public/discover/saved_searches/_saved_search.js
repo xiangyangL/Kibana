@@ -18,7 +18,7 @@ module.factory('SavedSearch', function (courier) {
 
       id: id,
       defaults: {
-        title: 'New Saved Search',
+        title: '新保存的搜索',
         description: '',
         columns: [],
         hits: 0,

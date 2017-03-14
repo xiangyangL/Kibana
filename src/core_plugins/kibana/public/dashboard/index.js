@@ -105,32 +105,32 @@ app.directive('dashboardApp', function (Notifier, courier, AppState, timefilter,
       $scope.$watch('state.options.darkTheme', setDarkTheme);
 
       $scope.topNavMenu = [{
-        key: 'new',
+        key: '新建',
         description: 'New Dashboard',
         run: function () { kbnUrl.change('/dashboard', {}); },
         testId: 'dashboardNewButton',
       }, {
-        key: 'add',
+        key: '添加',
         description: 'Add a panel to the dashboard',
         template: require('plugins/kibana/dashboard/partials/pick_visualization.html'),
         testId: 'dashboardAddPanelButton',
       }, {
-        key: 'save',
+        key: '保存',
         description: 'Save Dashboard',
         template: require('plugins/kibana/dashboard/partials/save_dashboard.html'),
         testId: 'dashboardSaveButton',
       }, {
-        key: 'open',
+        key: '打开',
         description: 'Open Saved Dashboard',
         template: require('plugins/kibana/dashboard/partials/load_dashboard.html'),
         testId: 'dashboardOpenButton',
       }, {
-        key: 'share',
+        key: '分享',
         description: 'Share Dashboard',
         template: require('plugins/kibana/dashboard/partials/share.html'),
         testId: 'dashboardShareButton',
       }, {
-        key: 'options',
+        key: '选项',
         description: 'Options',
         template: require('plugins/kibana/dashboard/partials/options.html'),
         testId: 'dashboardOptionsButton',

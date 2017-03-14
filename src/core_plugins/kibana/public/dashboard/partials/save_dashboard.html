@@ -2,7 +2,7 @@
   role="form"
   ng-submit="opts.save()"
 >
-  <div class="localDropdownTitle">Save Dashboard</div>
+  <div class="localDropdownTitle">保存仪表盘</div>
   <input
     class="localDropdownInput"
     id="dashboardTitle"
@@ -14,9 +14,9 @@
   <div class="form-group">
     <label>
       <input type="checkbox" ng-model="opts.dashboard.timeRestore" ng-checked="opts.dashboard.timeRestore">
-      Store time with dashboard
+      使用仪表盘存储时间
       <kbn-info info="Change the time filter to the currently selected time each time this dashboard is loaded"></kbn-info>
     </label>
   </div>
-  <button type="submit" ng-disabled="!opts.dashboard.title" class="btn btn-primary" aria-label="Save dashboard">Save</button>
+  <button type="submit" ng-disabled="!opts.dashboard.title" class="btn btn-primary" aria-label="Save dashboard">保存</button>
 </form>
