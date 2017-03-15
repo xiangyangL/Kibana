@@ -58,7 +58,7 @@
               <form role="form" ng-submit="applyRelative()" class="form-inline" name="relativeTime">
                 <div class="kbn-timepicker-section">
                   <label>
-                    From:
+                    从:
                     <span ng-show="relative.preview">{{relative.preview}}</span>
                     <span ng-hide="relative.preview"><i>Invalid Expression</i></span>
                   </label>
@@ -89,14 +89,14 @@
                         ng-checked="relative.round"
                         ng-change="formatRelative()"
                         type="checkbox">
-                      round to the {{units[relative.unit]}}
+                      切换到 {{units[relative.unit]}}
                     </label>
                   </div>
                 </div>
 
                 <div class="kbn-timepicker-section">
                   <label>
-                    To: Now
+                    至: Now
                   </label>
                   <br>
                   <div class="form-group">
@@ -109,7 +109,7 @@
                   <br>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary kbn-timepicker-go" ng-disabled="!relative.preview">
-                      Go
+                      跳转
                     </button>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
               <form name="absoluteTime" ng-submit="applyAbsolute()">
                 <div class="kbn-timepicker-section">
                   <div>
-                    <label class="small">From: <span ng-show="!absolute.from"><i>Invalid Date</i></span>
+                    <label class="small">从: <span ng-show="!absolute.from"><i>Invalid Date</i></span>
                     </label>
                     <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="absolute.from">
                   </div>
@@ -131,8 +131,8 @@
 
                 <div class="kbn-timepicker-section">
                   <div>
-                    <label class="small">To:
-                      <a class="label label-default" ng-click="setToNow()">Set To Now</a>
+                    <label class="small">至:
+                      <a class="label label-default" ng-click="setToNow()">设置成现在</a>
                     </label>
                     <span ng-show="!absolute.to"><i>Invalid Date</i></span>
                     <input type="text" required class="form-control" input-datetime="{{format}}" ng-model="absolute.to">
@@ -146,7 +146,7 @@
                   <label>&nbsp;</label>
                   <div class="form-group">
                     <button class="btn btn-primary kbn-timepicker-go" ng-disabled="absolute.from > absolute.to || !absolute.from || !absolute.to" type="submit">
-                      Go
+                      跳转
                     </button>
                     <span class="small" ng-show="absolute.from > absolute.to"><strong>From</strong> must occur before <strong>To</strong></span>
                   </div>
