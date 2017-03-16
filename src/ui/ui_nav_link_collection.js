@@ -14,8 +14,11 @@ export default class UiNavLinkCollection extends Collection {
   new(spec) {
     const link = new UiNavLink(this.uiExports, spec);
     this[inOrderCache] = null;
-    this.add(link);
-    return link;
+    //每个link导航加在一起，将'timelion'排除出去
+    if (link.id !== 'timelion') {
+      this.add(link);
+      return link;
+    }
   }
 
   get inOrder() {
