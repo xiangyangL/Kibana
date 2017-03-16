@@ -1,10 +1,10 @@
 <div>
   <div class="col-md-10 col-md-offset-1" data-test-subj="discoverNoResults">
 
-    <h1>No results found <i aria-hidden="true" class="fa fa-meh-o"></i></h1>
+    <h1>未找到结果 <i aria-hidden="true" class="fa fa-meh-o"></i></h1>
 
     <p>
-      Unfortunately I could not find any results matching your search. I tried really hard. I looked all over the place and frankly, I just couldn't find anything good. Help me, help you. Here are some ideas:
+      很抱歉，我找不到与您的搜索匹配的结果。 我真的很努力。 我看了所有的地方，坦率地说，我只是找不到符合需求的东西。 大家一起想想办法，这里有一些建议：
     </p>
 
     <div class="shard-failures" ng-show="failures">
@@ -19,31 +19,31 @@
 
     <div ng-show="opts.timefield">
       <p>
-        <h3>Expand your time range</h3>
-        <p>I see you are looking at an index with a date field. It is possible your query does not match anything in the current time range, or that there is no data at all in the currently selected time range. Click the button below to open the time picker. For future reference you can open the time picker by clicking on the <a class="btn btn-xs navbtn" ng-click="kbnTopNav.toggle('filter')" aria-expanded="kbnTopNav.is('filter')" aria-label="time picker" data-test-subj="discoverNoResultsTimefilter"><i aria-hidden="true" class="fa fa-clock-o"></i> time picker</a> button in the top right corner of your screen.
+        <h3>扩展你的时间范围</h3>
+        <p>我看到你正在看一个带有日期字段的索引.您的查询可能与当前时间范围内的任何内容不匹配,或者在当前所选时间范围内根本没有数据. 点击下面的按钮打开时间选择器. 为了将来参考，您可以通过点击屏幕右上角的<a class="btn btn-xs navbtn" ng-click="kbnTopNav.toggle('filter')" aria-expanded="kbnTopNav.is('filter')" aria-label="time picker" data-test-subj="discoverNoResultsTimefilter"><i aria-hidden="true" class="fa fa-clock-o"></i> 时间选择器</a> 按钮打开时间选择器.
       </p>
     </div>
 
-    <h3>Refine your query</h3>
+    <h3>优化您的查询</h3>
     <p>
-      The search bar at the top uses Elasticsearch's support for Lucene <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax" target="_blank">Query String syntax</a>. Let's say we're searching web server logs that have been parsed into a few fields.
+      顶部的搜索栏使用Elasticsearch对Lucene<a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax" target="_blank">查询字符串语法</a> 的支持.假设我们正在搜索已解析为几个字段的Web服务器日志.
     </p>
 
     <p>
-      <h4>Examples:</h4>
-      Find requests that contain the number 200, in any field:
+      <h4>举例:</h4>
+       在任何字段中查找包含数字200的请求：
       <pre>200</pre>
+    
+      或者我们可以在具体某个字段中查找.比如,在状态字段中查找200的状态码.
+    　<pre>status:200</pre>
 
-      Or we can search in a specific field. Find 200 in the status field:
-      <pre>status:200</pre>
-
-      Find all status codes between 400-499:
+      找到所有400-499之间的状态码
       <pre>status:[400 TO 499]</pre>
 
-      Find status codes 400-499 with the extension php:
+      查找状态代码400-499，扩展名为php：
       <pre>status:[400 TO 499] AND extension:PHP</pre>
 
-      Or HTML
+      或者 HTML
       <pre>status:[400 TO 499] AND (extension:php OR extension:html)</pre>
     </p>
 
