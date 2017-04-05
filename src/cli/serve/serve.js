@@ -155,12 +155,21 @@ module.exports = function (program) {
     const settings = getCurrentSettings();
 
     // console.log('serve*****************settings******222222222222222');
-    // { plugins:
-    // { scanDirs:
-    //   [ '/home/rt/lxy/kibana/build/kibana/plugins',
-    //     '/home/rt/lxy/kibana/build/kibana/src/plugins',
-    //     '/home/rt/lxy/kibana/build/kibana/src/core_plugins' ],
-    //     paths: [] } }
+    // console.log(settings);
+    // { server: { port: 5601 },
+    //   db:
+    //   { host: '127.0.0.1',
+    //     user: 'zdos',
+    //     password: 'zdht@123',
+    //     database: 'zdos',
+    //     port: 3360 },
+    //   elasticsearch: { shardTimeout: 0, startupTimeout: 5000 },
+    //   plugins:
+    //   { scanDirs:
+    //     [ '/home/rt/lxy/kibana/build/kibana/plugins',
+    //       '/home/rt/lxy/kibana/build/kibana/src/plugins',
+    //       '/home/rt/lxy/kibana/build/kibana/src/core_plugins' ],
+    //       paths: [] } }
     if (canCluster && opts.dev && !isWorker) {
       // stop processing the action and handoff to cluster manager
       const ClusterManager = require('../cluster/cluster_manager');
@@ -178,6 +187,7 @@ module.exports = function (program) {
     try {
       kbnServer = new KbnServer(settings);
       // console.log('serve***********************kbnServer*************2222222222222222222222');
+      // console.log(kbnServer);
       // KbnServer {
       //   name: 'kibana',
       //     version: '5.1.1',
@@ -198,7 +208,6 @@ module.exports = function (program) {
       //       '/home/rt/lxy/kibana/build/kibana/src/plugins',
       //       '/home/rt/lxy/kibana/build/kibana/src/core_plugins' ],
       //       paths: [] } }
-      // console.log(kbnServer.settings);
       await kbnServer.ready();
     }
     catch (err) {

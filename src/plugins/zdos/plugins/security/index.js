@@ -11,6 +11,9 @@ import createExpose from './server/lib/create_expose';
 import createScheme from './server/lib/login_scheme';
 
 export default function (kibana) {
+  //读取到kibana（即pluginsApi）的settings，settings是从kbnServer那传过来的
+  let mysqlConn = kibana.settings;
+
   return new kibana.Plugin({
     id: 'security',
     publicDir: resolve(__dirname, 'public'),
@@ -34,7 +37,7 @@ export default function (kibana) {
         main: 'plugins/security/views/login',
         hidden: true,
         injectVars(server) {
-          const { showLogin, loginMessage, allowLogin } = {showLogin:true, allowLogin:true,loginMessage:'Welcom to ZDOS!'};
+          const { showLogin, loginMessage, allowLogin } = {showLogin:true, allowLogin:true,loginMessage:'Welcome to ZDOS!'};
           return {
             loginState: {
               showLogin,
@@ -97,8 +100,8 @@ export default function (kibana) {
         console.log('register authication successfully');
         console.log('it will redirect to:' + loginUrl(config.get('server.basePath'),'/'));
       });
-
-      createExpose(server);
+      //将读取到的配置作为createExpose的参数
+      createExpose(server, mysqlConn);
       initAuthenticateApi(server);
       initLoginView(server, thisPlugin);
       initLogoutView(server, thisPlugin);

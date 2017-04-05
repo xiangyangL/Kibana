@@ -3,8 +3,7 @@ import mysql from 'mysql';
 import Promise from 'bluebird';
 import basicAuth from './basic_auth';
 
-export default function createExports(server) {
-
+export default function createExports(server, dbSettings) {
   const callWithRequest = function () {
     return function (request) {
       return true;
@@ -14,13 +13,15 @@ export default function createExports(server) {
     const {username, password} = basicAuth.parseHeader(request.headers.authorization);
 
     return new Promise(function (resolve, reject) {
-      let connection = mysql.createConnection({
-        host:'127.0.0.1',
-        port:3360,
-        user:'zdos',
-        password:'zdht@123',
-        database:'zdos'
-      });
+      //注销原先代码
+      // let connection = mysql.createConnection({
+      //   host:'127.0.0.1',
+      //   port:3360,
+      //   user:'zdos',
+      //   password:'zdht@123',
+      //   database:'zdos'
+      // });
+      let connection = mysql.createConnection(dbSettings.db);
 
       connection.connect(function (err) {
         if (err) {
