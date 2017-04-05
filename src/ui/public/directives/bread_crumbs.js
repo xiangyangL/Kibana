@@ -13,11 +13,14 @@ module.directive('breadCrumbs', function () {
     template: breadCrumbsTemplate,
     controller: function ($scope) {
       // Capitalize the first letter of each bread crumb.
-      $scope.breadcrumbs = chrome.getBreadcrumbs().map(breadcrumb => _.startCase(breadcrumb));
-
-      if ($scope.omitCurrentPage === true) {
-        $scope.breadcrumbs.pop();
-      }
+      //原先代码将面包屑每个单词首字母大写，汉化后该方法处理将返回空数组，因此作注销处理
+      // $scope.breadcrumbs = chrome.getBreadcrumbs().map(breadcrumb => _.startCase(breadcrumb));
+      $scope.breadcrumbs = chrome.getBreadcrumbs();
+      //造成面包屑数组每次删除一个
+      //暂未弄清该功能的作用
+      // if ($scope.omitCurrentPage === true) {
+      //   $scope.breadcrumbs.pop();
+      // }
     }
   };
 });

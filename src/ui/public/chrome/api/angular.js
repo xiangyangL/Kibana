@@ -6,6 +6,18 @@ import Notifier from 'ui/notify/notifier';
 import { UrlOverflowServiceProvider } from '../../error_url_overflow';
 
 const URL_LIMIT_WARN_WITHIN = 1000;
+//建立映射替换面包屑里的英文
+const zdosMapping = [];
+zdosMapping['/management'] = ['管理'];
+zdosMapping['/dev_tools/console'] = ['开发者工具','控制台'];
+zdosMapping['/visualize/step/1'] = ['管理','步骤',1];
+zdosMapping['/visualize/step/2'] = ['管理','步骤',2];
+zdosMapping['/management/kibana/indices/logstash-*'] = ['管理','zdos','索引','logstash-*'];
+zdosMapping['/management/kibana/objects'] = ['管理','zdos','对象'];
+zdosMapping['/management/kibana/settings'] = ['管理','zdos','设置'];
+zdosMapping['/management/kibana/index/'] = ['管理','zdos','索引'];
+zdosMapping['/management/kibana/indices/logstash-*/create-field/'] = ['管理','zdos','索引','logstash-*','创建字段'];
+zdosMapping['/management'] = ['管理'];
 
 module.exports = function (chrome, internals) {
   chrome.getFirstPathSegment = _.noop;
@@ -50,9 +62,25 @@ module.exports = function (chrome, internals) {
         if (path.charAt(length) === '/') {
           length--;
         }
-        return path.substr(1, length)
-          .replace(/_/g, ' ') // Present snake-cased breadcrumb names as individual words
-          .split('/');
+        // 注销原先代码
+        // return path.substr(1, length)
+        //   .replace(/_/g, ' ') // Present snake-cased breadcrumb names as individual words
+        //   .split('/');
+        // console.log('******************************++++++++++++++++++++++++++++--------------------------');
+        // console.log(path);
+        // console.log(path.substr(1,length)
+        //   .replace(/_/g, ' ')
+        //   .split('/')
+        // );
+        //加入判断，若映射数据中有该路径，则返回汉化的映射数据
+        if(zdosMapping[path]){
+          return zdosMapping[path];
+        }else{
+          //若映射数据中没有该路径，则按原先方法处理
+          return path.substr(1,length)
+            .replace(/_/g, ' ')
+            .split('/');
+        }
       };
 
       const notify = new Notifier();
