@@ -18,7 +18,7 @@ require('./src/directives/sense_welcome');
 
 devTools.register(() => ({
   order: 1,
-  name: 'console',
+  name: ' ',
   display: '控制台',
   url: '#/dev_tools/console'
 }));

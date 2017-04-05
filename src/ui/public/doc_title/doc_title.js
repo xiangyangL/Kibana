@@ -21,8 +21,9 @@ uiModules.get('kibana')
     let parts = [lastChange[0]];
 
     if (!lastChange[1]) parts.push(baseTitle);
-
-    return _(parts).flattenDeep().compact().join(' - ');
+    //暂不关心title的处理及更换，所有title都展示未zdos
+    //return _(parts).flattenDeep().compact().join(' - ');
+    return 'zdos';
   }
 
   self.change = function (title, complete) {
