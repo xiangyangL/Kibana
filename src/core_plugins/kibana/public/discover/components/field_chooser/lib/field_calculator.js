@@ -40,9 +40,7 @@ function getFieldValueCounts(params) {
 
     if (params.hits.length - missing === 0) {
       return {
-        error: 'This field is present in your elasticsearch mapping' +
-          ' but not in any documents in the search results.' +
-          ' You may still be able to visualize or search on it.'
+        error: '此字段存在于您的elasticsearch映射中，但不在搜索结果中的任何文档中。 您仍然可以将其可视化或搜索。'
       };
     }
 

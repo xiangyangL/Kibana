@@ -73,9 +73,9 @@ module.exports = function (chrome, internals) {
         //   .split('/')
         // );
         //加入判断，若映射数据中有该路径，则返回汉化的映射数据
-        if(zdosMapping[path]){
+        if (zdosMapping[path]) {
           return zdosMapping[path];
-        }else{
+        } else {
           //若映射数据中没有该路径，则按原先方法处理
           return path.substr(1,length)
             .replace(/_/g, ' ')

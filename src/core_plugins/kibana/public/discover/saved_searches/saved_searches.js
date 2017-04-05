@@ -32,7 +32,7 @@ module.service('savedSearches', function (Promise, config, kbnIndex, es, createN
   this.loaderProperties = {
     name: 'searches',
     noun: 'Saved Search',
-    nouns: 'saved searches'
+    nouns: '已保存的搜索'
   };
 
 

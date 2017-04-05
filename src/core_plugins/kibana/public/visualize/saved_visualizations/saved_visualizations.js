@@ -31,7 +31,7 @@ app.service('savedVisualizations', function (Promise, es, kbnIndex, SavedVis, Pr
   this.loaderProperties = {
     name: 'visualizations',
     noun: 'Visualization',
-    nouns: 'visualizations'
+    nouns: '可视化数据'
   };
 
   this.get = function (id) {
